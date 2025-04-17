@@ -1,0 +1,48 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Anthony from '@src/assets/img/anthonytownsend.png';
+import Prose from '../components/Prose.astro';
+
+---
+
+<BaseLayout
+	title="About Us"
+	description="Star City Group and Anthony M. Townsend"
+>
+  <div class='container'>
+		<main class='prose text-lg dark:prose-invert'>
+      <article>
+        <div class='w-full md:flex md:items-center gap-16 mb-10'>
+          <div class="text-pretty leading-9">
+            <h1 class="text-4xl font-bold mb-4">We help put urban tech in context.</h1>
+            <Prose>
+              <div class="text-lg">
+   
+                <Prose>
+
+
+                <p>We are ethical.</p>
+                <p>We put people before profits. That isn’t always easy, and sometimes means we lose business. But we’ll try to change your point of view first.</p>
+                <p>We don’t just talk.</p>
+                <p>We don’t just talk about urban technology. We code, design space, prototype hardware, write charters, and deploy networks.</p>
+                <p>We are a dynamic team.</p>
+                <p>We gather the right team for every project. Our collaborators hail from diverse geographies and disciplines.</p>
+                <p>We focus on you.</p>
+                <p>We typically only take on a single project at a time. That means if we’re working with you, we’re focused exclusively on you.</p>
+
+              </Prose>
+
+                <h2 class="text-4xl mb-4">Dr. Anthony Townsend</h2>
+
+                <p>Dr. Anthony Townsend is President and Founder of Star City Group, where he works around the world with industry, government and philanthropy on urban tech foresight, policy, and planning studies. He is the Urbanist in Residence at Cornell Tech’s Jacobs Institute. As part of the founding team of the university’s Urban Tech Hub, located on Roosevelt Island in New York City, he directs applied research and teaches courses on smart cities engineering.</p>
+              </div>
+            </Prose>
+          </div>
+          <Image src={Anthony} alt="Anthony Townsend" width={300}  class="rounded-3xl rotate-3 mx-4 md:mx-0"/>
+        </div>     
+        </article>
+      </article>
+    </main>
+  </div>
+</BaseLayout>
