@@ -1,0 +1,209 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Meta data for the page
+const title = 'Search | Star City Group';
+const description = 'Search for content across the Star City Group website';
+---
+
+<BaseLayout title={title} description={description}>
+	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+		<main>
+			<h1 class="text-4xl font-bold mb-8">Search</h1>
+			<div id="search" class="mb-16 w-full">
+				<!-- Pagefind will inject the search UI here -->
+				<div id="search-input" class="mb-8 w-full"></div>
+				<div id="results"></div>
+			</div>
+		</main>
+	</div>
+</BaseLayout>
+
+<style is:global>
+	/* Styling for search UI */
+	.pagefind-ui {
+		--pagefind-ui-scale: 1;
+		--pagefind-ui-primary: var(--link-color, #2563eb);
+		--pagefind-ui-text: var(--text-color, #374151);
+		--pagefind-ui-background: var(--background-color, #ffffff);
+		--pagefind-ui-border: var(--soft-border-color, #e5e7eb);
+		--pagefind-ui-border-width: 1px;
+		--pagefind-ui-border-radius: 0.5rem;
+		--pagefind-ui-font: inherit;
+		--pagefind-ui-spacing: 1.5rem;
+		width: 100%;
+	}
+
+	html.dark .pagefind-ui {
+		--pagefind-ui-primary: var(--link-color, #3b82f6);
+		--pagefind-ui-text: var(--text-color, #e5e7eb);
+		--pagefind-ui-background: var(--background-color, #1f2937);
+		--pagefind-ui-border: var(--soft-border-color, #374151);
+	}
+
+	/* Make search input full-width and improve styling */
+	.pagefind-ui__form {
+		width: 100%;
+		margin-bottom: 1.5rem;
+		position: relative;
+	}
+
+	.pagefind-ui__search-input {
+		width: 100% !important;
+		padding: 0.75rem 1rem !important;
+		font-size: 1.1rem !important;
+		border: 2px solid var(--pagefind-ui-border) !important;
+		border-radius: var(--pagefind-ui-border-radius) !important;
+		transition: border-color 0.2s ease-in-out;
+	}
+
+	.pagefind-ui__search-input:focus {
+		border-color: var(--pagefind-ui-primary) !important;
+		outline: none !important;
+		box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+	}
+
+	/* Hide clear button completely */
+	.pagefind-ui__search-clear {
+		display: none !important;
+	}
+
+	/* Enhance search result styling */
+	.pagefind-ui__results {
+		padding: 1rem 0;
+		width: 100%;
+	}
+
+	.pagefind-ui__result {
+		padding: 1.5rem;
+		margin-bottom: 1.5rem;
+		border: 1px solid var(--pagefind-ui-border);
+		border-radius: var(--pagefind-ui-border-radius);
+		transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+	}
+
+	.pagefind-ui__result:hover {
+		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+		transform: translateY(-2px);
+	}
+
+	.pagefind-ui__result-title {
+		font-size: 1.35rem;
+		font-weight: bold;
+		margin-bottom: 0.75rem;
+		color: var(--pagefind-ui-primary);
+	}
+
+	.pagefind-ui__result-date {
+		font-size: 0.9rem;
+		color: var(--pagefind-ui-text);
+		opacity: 0.8;
+		margin-bottom: 0.75rem;
+		display: block;
+	}
+
+	.pagefind-ui__result-excerpt {
+		font-size: 1rem;
+		margin-bottom: 0.75rem;
+		line-height: 1.5;
+	}
+
+	.pagefind-ui__message {
+		padding: 1.5rem;
+		border-radius: var(--pagefind-ui-border-radius);
+		background-color: var(--pagefind-ui-background);
+		border: 1px solid var(--pagefind-ui-border);
+		text-align: center;
+		font-size: 1.1rem;
+	}
+
+	/* Hide images in search results */
+	.pagefind-ui__result-image {
+		display: none !important;
+	}
+
+	.pagefind-ui__result-inner {
+		padding-left: 0 !important; /* Remove padding that was for the image */
+	}
+
+	/* Style pagination elements */
+	.pagefind-ui__button {
+		background-color: var(--pagefind-ui-background) !important;
+		border: 1px solid var(--pagefind-ui-border) !important;
+		padding: 0.75rem 1.25rem !important;
+		border-radius: var(--pagefind-ui-border-radius) !important;
+		font-weight: 500 !important;
+		transition: all 0.2s ease-in-out;
+	}
+
+	.pagefind-ui__button:hover {
+		background-color: var(--pagefind-ui-primary) !important;
+		color: white !important;
+	}
+</style>
+
+<script>
+	// Import and initialize Pagefind search when the page loads
+	window.addEventListener('DOMContentLoaded', async () => {
+		try {
+			const { PagefindUI } = await import('@pagefind/default-ui');
+			
+			// Initialize the search UI
+			new PagefindUI({
+				element: "#search-input",
+				showImages: false, // Disable images in search results
+				showEmptyFilters: false,
+				resetStyles: false,
+				// Excluding home and search page from results
+				excludeRoute: ['^/$', '^/search/?$'],
+				translations: {
+					placeholder: "Search for content...", 
+					clear_search: "Clear",
+					load_more: "View more results",
+					search_label: "Search this site",
+					filters_label: "Filters",
+					zero_results: "No results found for [SEARCH_TERM]",
+					many_results: "[COUNT] results found for [SEARCH_TERM]",
+					one_result: "1 result found for [SEARCH_TERM]",
+					searching: "Searching for [SEARCH_TERM]...",
+				}
+			});
+
+			// Add publication dates to search results
+			document.addEventListener('pagefind-ui:results', (event) => {
+				setTimeout(() => {
+					const results = document.querySelectorAll('.pagefind-ui__result');
+					
+					results.forEach(async (result) => {
+						const resultElement = result;
+						const resultData = resultElement.__pagefind_data;
+						
+						if (resultData?.meta?.date) {
+							const dateObj = new Date(resultData.meta.date);
+							const formattedDate = dateObj.toLocaleDateString('en-US', {
+								year: 'numeric', 
+								month: 'long', 
+								day: 'numeric'
+							});
+							
+							const dateElement = document.createElement('div');
+							dateElement.className = 'pagefind-ui__result-date';
+							dateElement.textContent = formattedDate;
+							
+							const titleElement = resultElement.querySelector('.pagefind-ui__result-title');
+							if (titleElement && titleElement.nextSibling) {
+								resultElement.querySelector('.pagefind-ui__result-inner').insertBefore(
+									dateElement, 
+									titleElement.nextSibling
+								);
+							}
+						}
+					});
+				}, 0);
+			});
+
+		} catch (error) {
+			console.error('Error initializing search:', error);
+		}
+	});
+</script>

@@ -1,5 +1,5 @@
 ---
-title: 'Re-Programming Mobility:'
+title: 'Re-Programming Mobility: The Digital Transformation of Transportation in the United States'
 slug: '2014-12-09-re-programming-mobility'
 description: '"Re-Programming Mobility" explores the transformative impact of digital technologies on U.S. transportation. From e-hailing and autonomous vehicles to electronic road pricing, these innovations are reshaping travel decisions, infrastructure, and urban planning. With private investments in tech rivaling historic public spending on highways, the article delves into how these changes influence travel behavior, land use, and transport networks, urging a reevaluation of traditional transportation planning approaches.'
 tags:

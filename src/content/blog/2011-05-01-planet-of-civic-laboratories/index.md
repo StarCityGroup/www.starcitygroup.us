@@ -5,13 +5,10 @@ description: 'Explore how cities have become "civic laboratories" in the face of
 tags:
   - 'report'
 pubDate: 'May 01 2011'
-coverImage: './2A-iftf-civic-lab.jpg'
 categories:
   - 'planning'
 ---
 
-
-![](images/2A-iftf-civic-lab.jpg)
 
 In 2010, the explosive growth of cities promised an economic opportunity with the potential to lift billions out of poverty. Yet the speed of change and lack of pro—poor foresight had already led to a swarm of urban problems—poor housing conditions, inadequate education and health care, and racial and ethnic inequalities.
 
@@ -22,3 +19,5 @@ This ten-year forecast map, developed with the Institute for the Future for The 
 View presentations of the map from April 2011 at [MIT’s Forum on Future Cities](https://www.slideshare.net/anthonymobile/a-planet-of-civic-laboratories) and at the [Museum of Vancouver](https://www.slideshare.net/anthonymobile/a-planet-of-civic-laboratories-museum-of-vancouver).
 
 Download the map from Institute for the Future. ([PDF](https://www.iftf.org/uploads/media/IFTF_Rockefeller_CivicLaboratoriesMap_01.pdf)) ([Prezi](https://prezi.com/4ylwohu2cztp/a-planet-of-civic-laboratories/))
+
+![](./2A-iftf-civic-lab.jpg)

@@ -18,4 +18,4 @@ Working with Bryan Boyer at Dash Marshall, we developed a set of three scenarios
 
 Download the illustrated report. ([PDF](https://www.starcitygroup.us/wp-content/uploads/2024/12/The-Most-Important-Mile.pdf), 5.6 Mb)
 
-![](images/Screen-Shot-2020-08-13-at-3.16.01-PM.png)
+![](./Screen-Shot-2020-08-13-at-3.16.01-PM.png)

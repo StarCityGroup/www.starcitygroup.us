@@ -5,7 +5,6 @@ description: '"Automated Vehicles 101: A Primer for Cities" is an essential guid
 tags:
   - 'report'
 pubDate: 'May 01 2017'
-coverImage: './primer-e1573783813629.png'
 categories:
   - 'avs'
 ---
@@ -28,3 +27,5 @@ This briefing book ([PDF](https://www.bbhub.io/dotorg/sites/2/2017/05/TamingtheA
 - benefits, risks, and unintended consequences of AVs.
 
 [Download PDF](https://www.bbhub.io/dotorg/sites/2/2017/05/TamingtheAutonomousVehicleSpreadsPDF.pdf)
+
+![](./primer-e1573783813629.png)

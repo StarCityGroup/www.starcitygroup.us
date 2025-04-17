@@ -27,4 +27,4 @@ Coverage:
 
 Learn more and buy the book at [www.ghostroadbook.com](https://www.ghostroadbook.com).
 
-![](images/ghostroad-cover.png)
+![](./ghostroad-cover.png)

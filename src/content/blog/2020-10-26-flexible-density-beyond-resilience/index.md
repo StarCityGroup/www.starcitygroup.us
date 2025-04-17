@@ -23,4 +23,4 @@ The essay is nominally about automated vehicles, but really centers on setting u
 > 
 > "[The Self-Driving Car Is A Red Herring](http://nautil.us/issue/92/frontiers/the-self_driving-car-is-a-red-herring)", by Anthony Townsend, _Nautilus_, October 21, 2020
 
-![](images/nautilus.jpg)
+![](./nautilus.jpg)

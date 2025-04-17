@@ -27,7 +27,7 @@ You can download a PDF of the [full card set](/wp-content/uploads/2020/02/St-Lou
 
 <figure>
 
-![](images/e-participants-1024x683.jpg)
+![](./e-participants-scaled.jpg)
 
 <figcaption>
 
@@ -37,4 +37,4 @@ Tarot-sized cards provide an engaging way to communicate trends and facilitate d
 
 </figure>
 
-![](images/f-stickes-1024x683.jpg)
+![](./f-stickes-scaled.jpg)

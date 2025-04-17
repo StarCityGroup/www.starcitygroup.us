@@ -11,11 +11,11 @@ categories:
 ---
 
 
-Seeing is believing. This is as true in executive education as it is for kindergartners. In 2016, we worked with global architecture, engineering, and planning consultancy Arup on the final sequence of a three-year capstone course on smart cities.
+Seeing is believing. This is as true in executive education as it is for kids. In 2016, we worked with global architecture, engineering, and planning consultancy Arup on the final sequence of a three-year capstone course on smart cities.
 
 <figure>
 
-![](images/IMG_0077-300x225.jpeg)
+![](./IMG_0077.jpeg)
 
 <figcaption>
 
@@ -33,7 +33,7 @@ The takeaway? A broader understanding of future trends and technologies, their i
 
 <figure>
 
-![](images/IMG_0301-1024x768.jpeg)
+![](./IMG_0301.jpeg)
 
 <figcaption>
 
@@ -45,7 +45,7 @@ Singapore Post is a leader in delivery innovation as the nation-state seeks to r
 
 <figure>
 
-![](images/IMG_0187-1024x768.jpeg)
+![](./IMG_0187-scaled.jpeg)
 
 <figcaption>
 
@@ -57,7 +57,7 @@ At Singapore's ArtScience Museum, works blending data and sensing are offering n
 
 <figure>
 
-![](images/IMG_0289-768x1024.jpeg)
+![](./IMG_0289.jpeg)
 
 <figcaption>
 
