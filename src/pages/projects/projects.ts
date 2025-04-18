@@ -20,7 +20,7 @@ export const projects: Project[] = [
   {
     name: 'RethinkAI',
     description: 'AI innovation at the city-civil society interface.',
-    demoLink: 'RethinkAI builds ambitious pilots with city and community leaders and then translates learnings from those efforts into concrete guidance, policy recommendations, and an AI blueprint for everyone.',
+    demoLink: 'https://www.newamerica.org/rethinkai/',
     demoLinkRel: 'nofollow noopener noreferrer',
     tags: ['AI', 'Government']
   },
