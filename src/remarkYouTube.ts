@@ -1,5 +1,7 @@
 import type { RemarkPlugin } from '@astrojs/markdown-remark';
 import { visit } from 'unist-util-visit';
+import type { Node } from 'unist';
+import type { Root } from 'mdast';
 
 interface YouTubeOptions {
   width?: number;
@@ -14,14 +16,18 @@ export const remarkYouTube: RemarkPlugin = (options: YouTubeOptions = {}) => {
   const height = options.height || 315;
 
   return (tree) => {
-    visit(tree, 'text', (node: any, index: number, parent: any): number | undefined => {
+    // Use type any to work around TypeScript errors with unist-util-visit
+    // The actual implementation is correct, but TypeScript is having trouble with the type definitions
+    visit(tree, 'text', function visitor(node: any, index, parent) {
+      if (!parent) return;
+
       // YouTube URL pattern
       const youtubeRegex = /https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})(?:&[^&\s]*)*(?:\?[^?\s]*)*/g;
       
       const value = node.value as string;
       let match;
       let lastIndex = 0;
-      const children = [];
+      const children: any[] = [];
 
       // Find all YouTube URLs in the text
       while ((match = youtubeRegex.exec(value)) !== null) {
@@ -64,7 +70,7 @@ export const remarkYouTube: RemarkPlugin = (options: YouTubeOptions = {}) => {
       }
 
       // Replace the current node with the new children if we found YouTube URLs
-      if (children.length > 0) {
+      if (children.length > 0 && index !== undefined) {
         parent.children.splice(index, 1, ...children);
         return index + children.length;
       }
