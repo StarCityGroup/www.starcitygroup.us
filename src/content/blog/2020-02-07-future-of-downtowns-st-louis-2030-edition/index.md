@@ -23,7 +23,7 @@ Working under Interface Studio, Star City Group created a ten-year forecast of t
 
 During a workshop in St. Louis in January 2020, a group of more than 40 public and private stakeholders used the cards as a foil for a shared exploration of the context for the coming decade. Insights provoked by the forecasts were recorded on a shared workspace.
 
-You can download a PDF of the [full card set](/wp-content/uploads/2020/02/St-Louis-Workshop-Cards.pdf).
+You can download a PDF of the [full card set](/pdf/St-Louis-Workshop-Cards.pdf).
 
 <figure>
 

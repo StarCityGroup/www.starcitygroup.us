@@ -27,4 +27,4 @@ Failure to address these issues head-on risks confronting a crisis in transporta
 
 We present these scenarios as a provocation to transportation policymakers, managers, and planners with the goal of stimulating  a national debate about the potential impacts of these new technologies and services, and how government can accommodate their vast potential to improve transportation and anticipate and mitigate their unintended consequences.
 
-[download scenarios PDF](/wp-content/uploads/2019/11/ReprogrammingMobility2014-Reports-All.zip)
+[download scenarios PDF](/pdf/ReprogrammingMobility2014-Reports-All.zip)

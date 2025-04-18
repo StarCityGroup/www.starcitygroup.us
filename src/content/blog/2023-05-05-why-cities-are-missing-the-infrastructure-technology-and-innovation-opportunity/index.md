@@ -41,8 +41,8 @@ To learn more about our work, check out these summaries from events we've curate
 
 - [Electric buses for urban transit](https://youtu.be/J30FTeIdS_Y) through the Low or No Emission Vehicle program
 
-- [Equitable EV charging network rollouts](https://localinfrastructure.org/wp-content/uploads/2023/03/Takeaways_Fair-paths-to-EV-charging.pdf) under the Charging and Fueling Infrastructure program
+- [Equitable EV charging network rollouts](/pdf/Takeaways_Fair-paths-to-EV-charging.pdf) under the Charging and Fueling Infrastructure program
 
-- [Innovative solutions for safe streets](https://localinfrastructure.org/wp-content/uploads/2023/05/Innovative-Solutions-for-Safe-Streets.pdf) under the Safe Streets and Roads for All program.
+- [Innovative solutions for safe streets](/pdf/Innovative-Solutions-for-Safe-Streets.pdf) under the Safe Streets and Roads for All program.
 
-- [Practical advice and big ideas for tech-enhanced transportation resilience](https://localinfrastructure.org/wp-content/uploads/2023/03/Practical-advice-and-big-ideas-for-tech-enhanced-transportation-resilience.pdf) under the Promoting Resilient Operations for Transformative, Efficient, and Cost-Saving Transportation (PROTECT) program.
+- [Practical advice and big ideas for tech-enhanced transportation resilience](/pdf/Practical-advice-and-big-ideas-for-tech-enhanced-transportation-resilience.pdf) under the Promoting Resilient Operations for Transformative, Efficient, and Cost-Saving Transportation (PROTECT) program.

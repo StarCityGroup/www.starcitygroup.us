@@ -31,4 +31,4 @@ A handful of open questions on data maturity models remained:
 - Are generalized maturity models as effective for building long-term engagement with partners as problem-specific approaches?
 - How can maturity models reflect ability to create incentives, per- missions, institutionalization, and other political economy concerns?
 
-[download pdf](/wp-content/uploads/2019/12/IDB_BigData_DC_WorkshopReport_9Nov2016-FINAL.pdf)
+[download pdf](/pdf/IDB_BigData_DC_WorkshopReport_9Nov2016-FINAL.pdf)
