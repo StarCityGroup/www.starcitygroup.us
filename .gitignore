@@ -24,5 +24,6 @@ pnpm-debug.log*
 .idea/
 migration/.venv
 migration/.env
-public/images
+
 public/pdf/Global-Atlas-of-AVs-in-Cities.pdf
+public/images-archive
