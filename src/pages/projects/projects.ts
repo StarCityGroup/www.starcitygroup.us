@@ -32,6 +32,12 @@ export const projects: Project[] = [
     /* postLink: '/2023-07-02-nycs-urban-tech-ecosystem/', */
     tags: ['Planning', 'Real Estate']
   },
+  {
+    name: 'Bus Observatory',
+    description: 'Archive of real-time transit data across multiple global cities.',
+    demoLink: 'https://api.busobservatory.org',
+    tags: ['Mobility','Data']
+  },
   /* {
     ...(await getRepositoryDetails('syakirurahman/react-lab')),
     name: 'React Lab',
