@@ -29,6 +29,6 @@ We typically only take on a single project at a time. That means if we’re work
 
 Dr. Anthony Townsend is President and Founder of Star City Group, where he works around the world with industry, government and philanthropy on urban tech foresight, policy, and planning studies. He is the Urbanist in Residence at Cornell Tech’s Jacobs Institute. As part of the founding team of the university’s Urban Tech Hub, located on Roosevelt Island in New York City, he directs applied research and teaches courses on smart cities engineering.
 
-[](https://www.starcitygroup.us/wp-content/uploads/2023/07/2023-07-Anthony-Townsend-Media-Kit.zip)
+[](/pdf/2023/07/2023-07-Anthony-Townsend-Media-Kit.zip)
 
 Download media kit Includes a bio, CV, book cover images, and headshots. (Updated July 1, 2023)

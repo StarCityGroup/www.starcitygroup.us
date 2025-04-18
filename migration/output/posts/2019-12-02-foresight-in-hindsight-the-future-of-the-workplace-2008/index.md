@@ -20,4 +20,4 @@ DEGW’s work over the last year circumscribes the way design practice is evolvi
 
 In this world, workplace design is not going to be about idealized solutions, because the pace of organizational change set by what is happening to online collaboration isn’t slowing down. Instead, the challenge will be putting in place processes that make physical space flexible enough to accommodate a rapid evolution of collaborative needs. DEGW’s painstaking methods for gaining deep insight into these intersections will provide a basis for growth and excellence in practice for many years to come.
 
-[PDF](https://www.starcitygroup.us/wp-content/uploads/2019/11/DEGW-AnnualReview-07-08-Flexibility.pdf)
+[PDF](/pdf/DEGW-AnnualReview-07-08-Flexibility.pdf)

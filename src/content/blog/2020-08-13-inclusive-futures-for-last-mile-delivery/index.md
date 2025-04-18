@@ -16,6 +16,6 @@ In the spring of 2020, we began working with Julia Powles, Bianca Wylie, and the
 
 Working with Bryan Boyer at Dash Marshall, we developed a set of three scenarios that explore in turn how consumer cooperatives, maker collectives, and national postal systems can play a crucial role in rewriting the future of last mile delivery systems as a tool for wealth development rather than wealth extraction.
 
-Download the illustrated report. ([PDF](https://www.starcitygroup.us/wp-content/uploads/2024/12/The-Most-Important-Mile.pdf), 5.6 Mb)
+Download the illustrated report. ([PDF](/pdf/The-Most-Important-Mile.pdf), 5.6 Mb)
 
 ![](./Screen-Shot-2020-08-13-at-3.16.01-PM.png)

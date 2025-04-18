@@ -27,7 +27,7 @@ For each city, [the atlas](https://avsincities.bloomberg.org) provides data on:
 
 - links to further information, including official documents.
 
-The Atlas has been archived. A single PDF of all content on the original website is available [here](https://www.starcitygroup.us/wp-content/uploads/2023/07/Global-Atlas-of-AVs-in-Cities.pdf) (250 Mb) and the Internet Archive's most recent replica of the site can be accessed [here](https://web.archive.org/web/20220207170230/https://avsincities.bloomberg.org/).
+The Atlas has been archived. A single PDF of all content on the original website is available [here](/pdf/Global-Atlas-of-AVs-in-Cities.pdf) (250 Mb) and the Internet Archive's most recent replica of the site can be accessed [here](https://web.archive.org/web/20220207170230/https://avsincities.bloomberg.org/).
 
 See also:
 

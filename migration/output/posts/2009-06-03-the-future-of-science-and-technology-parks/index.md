@@ -18,4 +18,4 @@ The results—14 trends and 3 scenarios—highlight the challenges and opportuni
 
 At RTP, these scenarios pointed to a common response to maximize the appeal and flexibility of a 21st century innovation hub—adding housing, improving connectivity, and rolling out amenities. In short, urbanizing the technology park. With our help, RTP began to undertake a new master plan that is helping it restructure to meet the demands of today’s most innovative companies and talent.
 
-Download the report [here](https://www.starcitygroup.us/wp-content/uploads/2020/08/1B-SR-1236-Future-Knowledge-Ecosystems.pdf). A limited number of hard copies are available on [Amazon](https://www.amazon.com/Future-Knowledge-Ecosystems-Anthony-Townsend/dp/B009AKLB86).
+Download the report [here](/pdf/1B-SR-1236-Future-Knowledge-Ecosystems.pdf). A limited number of hard copies are available on [Amazon](https://www.amazon.com/Future-Knowledge-Ecosystems-Anthony-Townsend/dp/B009AKLB86).

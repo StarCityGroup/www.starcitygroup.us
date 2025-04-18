@@ -16,6 +16,6 @@ The oceans are at once an e xploited and under-developed resource, a mysterious 
 
 - developing the region as a world-class test bed for blue economy technologies, with test ranges encompassing a full set of maritime, littoral, and aerospace settings.
 
-Download the report [here](https://www.starcitygroup.us/wp-content/uploads/2020/08/SA-Gulfport-BEID-20200124.pdf).
+Download the report [here](/pdf/SA-Gulfport-BEID-20200124.pdf).
 
-[![](images/Screen-Shot-2020-09-01-at-8.43.45-PM.png)](https://www.starcitygroup.us/wp-content/uploads/2020/08/SA-Gulfport-BEID-20200124.pdf)
+[![](images/Screen-Shot-2020-09-01-at-8.43.45-PM.png)](/pdf/SA-Gulfport-BEID-20200124.pdf)
