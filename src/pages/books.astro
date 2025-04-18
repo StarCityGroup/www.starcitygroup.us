@@ -1,0 +1,121 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Prose from '../components/Prose.astro';
+
+// You can import book cover images here if they're in your assets directory
+import GhostRoadCover from '/public/images/ghostroad-cover.png';
+import SmartCitiesCover from '/public/images/smartcities-cover-full.jpg';
+
+---
+
+<BaseLayout
+	title="Books by Anthony Townsend"
+	description="Publications by Anthony Townsend on urban technology, smart cities, and autonomous vehicles"
+>
+  <div class='container'>
+    <main class='prose text-lg dark:prose-invert'>
+      <article>
+        <h1 class="text-4xl font-bold mb-6">Books</h1>
+        
+        <div class="mb-16">
+          <div class="mb-6">
+            <h2 class="text-3xl font-bold mb-4">Ghost Road: Beyond the Driverless Car</h2>
+            
+            <div class="md:flex gap-8 items-start">
+              <div class="md:w-1/3 mb-6 md:mb-0">
+                
+                <Image src={GhostRoadCover} alt="Ghost Road book cover" class="rounded-lg shadow-lg w-full" /> 
+                
+                <!-- Otherwise, use a relative path to public directory:
+                <img src="/blog-placeholder-4.jpg" alt="Ghost Road book cover" class="rounded-lg shadow-lg w-full" />
+            -->
+              </div>
+              
+              <div class="md:w-2/3">
+                <Prose>
+                  <p class="italic text-zinc-700 dark:text-zinc-300 mb-4">"Ghost Road offers up an exhilarating picture of the ways in which autonomous vehicles might transform our lives for the better, saving time and lines, reshaping cities, and helping combat climate change." — James Surowiecki, Strategy + Business, "Best Business Books of 2020"</p>
+                  
+                  <p>For decades we have tried to build a car that will drive itself. But the driverless car is a red herring. When self-driving technology infects buses, bikes, delivery vans, and even buildings, a wild, woollier, future awaits. Ghost Road explains where we might be headed together in driverless vehicles, and the choices we must make as societies and individuals to shape that future.</p>
+                  
+                  <h4 class="text-xl font-bold mt-4">How to Buy</h3>
+                  
+                  <p>Patronize independent booksellers worldwide on <a href="https://bookshop.org/books/ghost-road-beyond-the-driverless-car-9781684579341/9781324001522" target="_blank">Bookshop.org</a>. Check <a href="https://www.wordbookstores.com/book/9781324001522" target="_blank">WORD Bookstores</a> for local delivery or pickup in Brooklyn and Jersey City. <a href="https://www.amazon.com/dp/1324001526/ref=cm_sw_su_dp" target="_blank">Amazon</a> has the book in stock and is delivering, and of course has a <a href="https://www.amazon.com/Ghost-Road-Beyond-Driverless-Car-ebook/dp/B07ZTSZM5S/" target="_blank">Kindle</a> edition for instant download and <a href="https://www.amazon.com/Ghost-Road-Beyond-Driverless-Car/dp/B08F6T1YR9" target="_blank">Audible</a> audiobook.</p>
+                  
+                  <p>For bulk book orders, I recommend <a href="https://www.porchlightbooks.com/product/ghost-road-beyond-the-driverless-car--anthony-m-townsend" target="_blank">Porchlight</a> (up to 250 copies) or <a href="https://wwnorton.com/books/9781324001522" target="_blank">W.W. Norton</a> (over 250 copies).</p>
+                </Prose>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mb-16">
+          <div class="mb-6">
+            <h2 class="text-3xl font-bold mb-4">Smart Cities: Big Data, Civic Hackers, and the Quest For A New Utopia</h2>
+            
+            <div class="md:flex gap-8 items-start">
+              <div class="md:w-1/3 mb-6 md:mb-0">
+                
+                <Image src={SmartCitiesCover} alt="Smart Cities book cover" class="rounded-lg shadow-lg w-full" /> 
+                
+                <!-- Otherwise, use a relative path to public directory: 
+                <img src="/blog-placeholder-3.jpg" alt="Smart Cities book cover" class="rounded-lg shadow-lg w-full" />
+                -->
+              </div>
+              
+              <div class="md:w-2/3">
+                <Prose>
+                  <p class="italic text-zinc-700 dark:text-zinc-300 mb-4">"[A] timely and necessary guide to this age of the Franken-city." — Daniel Brook, The New York Times Book Review</p>
+                  
+                  <p>From Beijing to Boston, cities are deploying smart technology—sensors embedded in streets and subways, Wi-Fi broadcast airports and green spaces—to address the basic challenges faced by massive, interconnected metropolitan centers. <em>Smart Cities</em> documents this emerging futuristic landscape while considering the motivations, aspirations, and shortcomings of the key actors—entrepreneurs, mayors, philanthropists, and software developers—at work in shaping the new urban frontier.</p>
+                  
+                  <h4 class="text-xl font-bold mt-4">How to Buy</h3>
+                  
+                  <p>Patronize independent booksellers worldwide on <a href="https://bookshop.org/books/smart-cities-big-data-civic-hackers-and-the-quest-for-a-new-utopia/9780393349788" target="_blank">Bookshop.org</a>. Check <a href="https://www.wordbookstores.com/book/9780393349788" target="_blank">WORD Bookstores</a> for local delivery or pickup in Brooklyn and Jersey City. <a href="https://www.amazon.com/dp/0393349780/ref=cm_sw_su_dp" target="_blank">Amazon</a> has the book in stock and is delivering.</p>
+                  
+                  <h4 class="text-xl font-bold mt-4">Translations and Rights</h3>
+                  
+                  <p>Contact your local publisher for more information. Rights inquires, please contact the <a href="http://www.zpagency.com" target="_blank">Zoë Pagnamenta Agency</a>.</p>
+                  
+                  <div class="mt-4 overflow-x-auto">
+                    <table class="min-w-full bg-white dark:bg-zinc-800 border dark:border-zinc-700 rounded-lg">
+                      <thead>
+                        <tr>
+                          <th class="py-2 px-4 border-b dark:border-zinc-700 text-left">Language</th>
+                          <th class="py-2 px-4 border-b dark:border-zinc-700 text-left">Publisher</th>
+                          <th class="py-2 px-4 border-b dark:border-zinc-700 text-left">Link</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="py-2 px-4 border-b dark:border-zinc-700">Chinese (PRC)</td>
+                          <td class="py-2 px-4 border-b dark:border-zinc-700">CITIC Press</td>
+                          <td class="py-2 px-4 border-b dark:border-zinc-700"><a href="https://www.amazon.com/%E6%99%BA%E6%85%A7%E5%9F%8E%E5%B8%82-%E5%A4%A7%E6%95%B0%E6%8D%AE%E3%80%81%E4%BA%92%E8%81%94%E7%BD%91%E6%97%B6%E4%BB%A3%E7%9A%84%E5%9F%8E%E5%B8%82%E6%9C%AA%E6%9D%A5-%E7%BE%8E-%E5%AE%89%E4%B8%9C%E5%B0%BC%C2%B7%E6%B1%A4%E6%A3%AE/dp/B01EP932Q0" target="_blank">Buy</a></td>
+                        </tr>
+                        <tr>
+                          <td class="py-2 px-4 border-b dark:border-zinc-700">Chinese (Taiwan)</td>
+                          <td class="py-2 px-4 border-b dark:border-zinc-700">Faces Publishing</td>
+                          <td class="py-2 px-4 border-b dark:border-zinc-700"><a href="https://goods.ruten.com.tw/item/show?21829358189062" target="_blank">Buy</a></td>
+                        </tr>
+                        <tr>
+                          <td class="py-2 px-4 border-b dark:border-zinc-700">Korean</td>
+                          <td class="py-2 px-4 border-b dark:border-zinc-700">MID</td>
+                          <td class="py-2 px-4 border-b dark:border-zinc-700"><a href="http://www.yes24.com/Product/Goods/61308682" target="_blank">Buy</a></td>
+                        </tr>
+                        <tr>
+                          <td class="py-2 px-4 border-b dark:border-zinc-700">Russian</td>
+                          <td class="py-2 px-4 border-b dark:border-zinc-700">Gaidar Institute</td>
+                          <td class="py-2 px-4 border-b dark:border-zinc-700"><a href="https://market.yandex.ru/product--taunsend-e-umnye-goroda-bolshie-dannye-grazhdanskie-khakery-i-poiski-novoi-utopii/561036115/spec" target="_blank">Buy</a></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </Prose>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </main>
+  </div>
+</BaseLayout>
