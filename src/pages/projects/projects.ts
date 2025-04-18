@@ -12,8 +12,8 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    name: 'Initiative on Aging and Adaptation to Extreme Heat',
-    description: 'Pioneering cross-sector responses to climate impacts.',
+    name: 'Aging and Extreme Heat',
+    description: 'Interdisciplinary applied research pioneering cross-sector responses to climate impacts.',
     demoLink: 'https://www.extremeheat.us',
     tags: ['Adaptation','Health']
   },
@@ -25,20 +25,14 @@ export const projects: Project[] = [
     tags: ['AI', 'Government']
   },
   {
-    name: 'Gaji.id App',
-    description: 'Payroll and HR Management Information System',
-    demoLink: 'https://sellercraft.co',
-    demoLinkRel: 'nofollow noopener noreferrer',
-    tags: ['HRIS', 'Saas']
-  },
-  {
     ...(await getRepositoryDetails('Cornell-Tech-Urban-Tech-Hub/atlas-of-urban-tech')),
     name: 'Atlas of Urban Tech',
+    description: 'Case studies of smart city plans and districts.',
     demoLink: 'https://www.atlasofurbantech.org',
-    postLink: '/2023-07-02-nycs-urban-tech-ecosystem/',
-    tags: ['Planning', 'Smart Cities', 'Real Estate']
+    /* postLink: '/2023-07-02-nycs-urban-tech-ecosystem/', */
+    tags: ['Planning', 'Real Estate']
   },
-  {
+  /* {
     ...(await getRepositoryDetails('syakirurahman/react-lab')),
     name: 'React Lab',
     demoLink: 'https://devaradise.com/lab/react/',
@@ -61,5 +55,5 @@ export const projects: Project[] = [
     name: 'Organization tree',
     demoLink: 'https://organization-tree-2a446.web.app/',
     tags: ['Hobby']
-  }
+  } */
 ]
