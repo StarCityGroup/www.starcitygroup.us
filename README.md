@@ -1,56 +1,49 @@
-# Devolio
+# Star City Group
 
-Devolio is a free portfolio and blog template to help you setup your personal website quickly.
+Official website for Star City Group, a consultancy that helps cities, non-profits, and companies make sense of emerging urban technologies.
 
-[Demo](https://devolio.devaradise.com) [Article](https://devaradise.com/devolio-astro-portfolio-blog-theme)
+## About Star City Group
 
----
+Star City Group is led by Dr. Anthony Townsend, working around the world with industry, government and philanthropy on urban tech foresight, policy, and planning studies. The group specializes in:
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/devaradise/devolio)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/devaradise/devolio)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/devaradise/devolio?devcontainer_path=.devcontainer/blog/devcontainer.json)
+- Research and foresight studies on emerging urban technologies
+- Strategic advising for cities and organizations
+- Policy development for smart city initiatives
+- Planning for automation, data, and civic technology
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/next-netlify-starter)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdevaradise%2Fdevolio)
+This website showcases Star City Group's work, publications, projects, and insights on the future of cities and technology.
 
-Features:
+## Website Features
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-- ✅ Post tags
-- ✅ Projects
-- ✅ Table of content
+- Portfolio of projects and case studies
+- Blog with insights on urban technology trends
+- Information about Dr. Townsend's books including "Smart Cities" and "Ghost Road"
+- Resources and publications on urban technology
 
 ## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
+Inside of the Astro project, you'll see the following folders and files:
 
 ```text
 ├── public/
 ├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-│   └── styles/
+│   ├── assets/
+│   ├── components/
+│   ├── content/
+│   ├── layouts/
+│   └── pages/
+│   └── styles/
 ├── astro.config.mjs
 ├── README.md
 ├── package.json
 └── tsconfig.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+This website is built with Astro, which looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+The `src/content/` directory contains collections of related Markdown and MDX documents, primarily blog posts and project descriptions.
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
-
-Any static assets, like images, can be placed in the `public/` directory.
+Any static assets, like images, are placed in the `public/` directory.
 
 ## 🧞 Commands
 
