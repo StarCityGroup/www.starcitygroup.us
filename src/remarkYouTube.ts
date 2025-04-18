@@ -14,7 +14,7 @@ export const remarkYouTube: RemarkPlugin = (options: YouTubeOptions = {}) => {
   const height = options.height || 315;
 
   return (tree) => {
-    visit(tree, 'text', (node: any, index: number, parent: any) => {
+    visit(tree, 'text', (node: any, index: number, parent: any): number | undefined => {
       // YouTube URL pattern
       const youtubeRegex = /https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})(?:&[^&\s]*)*(?:\?[^?\s]*)*/g;
       
@@ -68,6 +68,8 @@ export const remarkYouTube: RemarkPlugin = (options: YouTubeOptions = {}) => {
         parent.children.splice(index, 1, ...children);
         return index + children.length;
       }
+      
+      return undefined;
     });
   };
 };
