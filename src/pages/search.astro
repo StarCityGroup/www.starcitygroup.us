@@ -170,15 +170,16 @@ const description = 'Search for content across the Star City Group website';
 			});
 
 			// Add publication dates to search results
-			document.addEventListener('pagefind-ui:results', (event) => {
+			document.addEventListener('pagefind-ui:results', (event: Event) => {
 				setTimeout(() => {
 					// Remove the "New search" link code completely
 					
 					// Add publication dates to search results
 					const results = document.querySelectorAll('.pagefind-ui__result');
 					
-					results.forEach(async (result) => {
-						const resultElement = result;
+					results.forEach((result) => {
+						// Use type assertion for custom property
+						const resultElement = result as HTMLElement & { __pagefind_data?: { meta?: { date?: string } } };
 						const resultData = resultElement.__pagefind_data;
 						
 						if (resultData?.meta?.date) {
@@ -194,8 +195,10 @@ const description = 'Search for content across the Star City Group website';
 							dateElement.textContent = formattedDate;
 							
 							const titleElement = resultElement.querySelector('.pagefind-ui__result-title');
-							if (titleElement && titleElement.nextSibling) {
-								resultElement.querySelector('.pagefind-ui__result-inner').insertBefore(
+							const resultInner = resultElement.querySelector('.pagefind-ui__result-inner');
+							
+							if (titleElement && titleElement.nextSibling && resultInner) {
+								resultInner.insertBefore(
 									dateElement, 
 									titleElement.nextSibling
 								);
