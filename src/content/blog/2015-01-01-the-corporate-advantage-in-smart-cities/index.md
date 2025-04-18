@@ -15,4 +15,6 @@ The concept of "smart cities" has become a catchphrase for many companies seekin
 
 "The idea basically is how to use information technology to make cities work better," explained Anthony Townsend, research director at the Institute for the Future, in an interview with IESE Prof. Paddy Miller at the World Business Forum.
 
-https://www.youtube.com/watch?v=PBTJxm3-DuM
+<div class="youtube-container my-8" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">
+  <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/PBTJxm3-DuM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>

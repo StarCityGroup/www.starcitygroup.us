@@ -14,4 +14,6 @@ categories:
 
 This talk at Manchester's remarkable Future Everything conference, provided an overview of the key themes and arguments in _[Smart Cities: Big Data, Civic Hackers, and the Quest for A New Utopia](https://www.smartcitiesbook.com)_.
 
-https://www.youtube.com/watch?v=0KCKIS0w1Y0
+<div class="youtube-container my-8" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">
+  <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/0KCKIS0w1Y0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>

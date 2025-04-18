@@ -16,7 +16,7 @@ How can cities harness AVs to solve pressing mobility challenges? What kinds of 
 This web-based atlas, researched over two years, provides encyclopedic information on more than 136 cities across the globe that are preparing for  
 AVs by conducting pilots or developing plans and policies.
 
-For each city, [the atlas](https://avsincities.bloomberg.org) provides data on:
+For each city, the atlas provides data on:
 
 - a detailed description of the city and its AV preparations,
 

@@ -3,6 +3,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwind from "@astrojs/tailwind";
 import { autoNewTabExternalLinks } from './src/autoNewTabExternalLinks';
+import { remarkYouTube } from './src/remarkYouTube';
 import partytown from "@astrojs/partytown";
 import pagefind from "astro-pagefind";
 
@@ -17,6 +18,7 @@ export default defineConfig({
   ],
   markdown: {
     extendDefaultPlugins: true,
+    remarkPlugins: [remarkYouTube],
     rehypePlugins: [[autoNewTabExternalLinks, {
       domain: 'localhost:4321'
     }]]

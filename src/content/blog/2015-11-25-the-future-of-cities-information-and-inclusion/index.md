@@ -13,4 +13,6 @@ categories:
 
 Based on ESADE's "Inspiring Futures" format, this presentation is one of eleven delivered by thought-leaders on 17 November 2013, the first of the two-day CitiSense 2013 Conference, organized by the United Nations.
 
-https://www.youtube.com/watch?v=YO5GghcSOW0
+<div class="youtube-container my-8" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">
+  <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/YO5GghcSOW0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>

@@ -13,4 +13,6 @@ categories:
 
 This brief clip, part of the NYU GovLab's online academy, provides a high-level overview of how cities have used data--from the invention of writing to machine learning--to solve governance problems. It highlights some of the risks of actually putting data-driven solutions to work.
 
-https://www.youtube.com/watch?v=pbO-NAnvLIo
+<div class="youtube-container my-8" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">
+  <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/pbO-NAnvLIo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>

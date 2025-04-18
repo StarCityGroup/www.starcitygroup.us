@@ -15,4 +15,6 @@ How is digital technology changing the way we build, govern, and live in cities?
 
 This keynote, delivered at the German Marshall Fund's BUILD symposium in Bilbao, Spain in October 2016 provides a sweeping summary of the smart city's origins, its contemporary challenges, and its future prospects.
 
-https://www.youtube.com/watch?v=mCEqxjUbfF8
+<div class="youtube-container my-8" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">
+  <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/mCEqxjUbfF8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>

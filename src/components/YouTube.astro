@@ -1,0 +1,50 @@
+---
+/**
+ * YouTube Embed Component
+ * 
+ * Usage: <YouTube url="https://www.youtube.com/watch?v=VIDEOID" />
+ * 
+ * This component extracts the video ID from various YouTube URL formats and creates
+ * a responsive embed that maintains a 16:9 aspect ratio.
+ */
+
+interface Props {
+  url: string;
+  title?: string;
+}
+
+const { url, title = 'YouTube video player' } = Astro.props;
+
+// Extract video ID from different YouTube URL formats
+function getYouTubeId(url: string): string | null {
+  const regExp = /^.*(youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([^#\&\?]*).*/;
+  const match = url.match(regExp);
+  
+  return (match && match[2].length === 11) ? match[2] : null;
+}
+
+const videoId = getYouTubeId(url);
+---
+
+{videoId && (
+  <div class="youtube-container my-5">
+    <iframe 
+      width="560" 
+      height="315" 
+      src={`https://www.youtube.com/embed/${videoId}`}
+      title={title}
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen
+      class="w-full aspect-video"
+    ></iframe>
+  </div>
+)}
+
+<style>
+  .youtube-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+  }
+</style>
