@@ -13,7 +13,7 @@ categories:
 
 The third and final output from our collaboration with Bloomberg Philanthropies and the Aspen Institute on the Initiative on Cities and Autonomous Vehicles was a set of four scenarios. Published in collaboration with the National League of Cities, these scenarios showcasing how a variety of vehicle types and services will transform urban mobility—beyond just the passenger cars and taxis talked about today.
 
-[Explore the AV Scenarios](https://avfutures.nlc.org)
+[Explore the AV Scenarios](https://web.archive.org/web/20250312015741/https://avfutures.nlc.org/#expand) — Internet Archive of original website published by the National League of Cities.
 
 Or, for an guided exploration of the scenarios, see our presentation the Toronto's Evergreen Brickworks campus in May 2019.
 

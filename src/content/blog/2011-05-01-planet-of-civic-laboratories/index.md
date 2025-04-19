@@ -18,6 +18,6 @@ This ten-year forecast map, developed with the Institute for the Future for The 
 
 View presentations of the map from April 2011 at [MIT’s Forum on Future Cities](https://www.slideshare.net/anthonymobile/a-planet-of-civic-laboratories) and at the [Museum of Vancouver](https://www.slideshare.net/anthonymobile/a-planet-of-civic-laboratories-museum-of-vancouver).
 
-Download the map from Institute for the Future. ([PDF](https://www.iftf.org/uploads/media/IFTF_Rockefeller_CivicLaboratoriesMap_01.pdf)) ([Prezi](https://prezi.com/4ylwohu2cztp/a-planet-of-civic-laboratories/))
+Download the map from Institute for the Future. ([PDF](https://legacy.iftf.org/uploads/media/IFTF_Rockefeller_CivicLaboratoriesMap_01.pdf))
 
 ![](./2A-iftf-civic-lab.jpg)

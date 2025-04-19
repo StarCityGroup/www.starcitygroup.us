@@ -15,7 +15,7 @@ _This is a repost of an essay published in July 2019 on [Moviliblog](https://blo
 
 * * *
 
-[translate](https://translate.google.com/translate?hl=en&sl=auto&tl=en&u=https%3A%2F%2Fwww.starcitygroup.us%2F2019%2F07%2Fun-mundo-sin-conductores-ver-para-creer%2F)
+[translate](https://www-starcitygroup-us.translate.goog/2019-07-02-un-mundo-sin-conductores-ver-para-creer/?_x_tr_sl=es&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp)
 
 Hace más de cuarenta años, el primer vehículo que podría llamarse, realmente, “autónomo” tomó las calles de Japón, cerca de la Universidad de Tsukuba. El vehículo no fue una gran revolución- sólo podía moverse a menos de 20 kilómetros de hora. Pero, por primera vez, eran los ordenadores quienes manejaban.  Lo demás es historia. A ya cuatro décadas de ese famoso viaje, la tecnología de vehículos autónomos avanza exponencialmente cada año. Hoy, hay muchas ideas de las posibilidades que esta tecnología podría tener para uso comercial en transporte de pasajeros y de carga. La promesa de quienes proponen esta tecnología tiene tres partes. 
 

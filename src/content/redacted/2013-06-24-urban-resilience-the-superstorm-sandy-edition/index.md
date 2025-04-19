@@ -17,4 +17,4 @@ Over the last 20 years, New York City has faced a series of challenges that both
 
 Filmed in Brooklyn at PopTech.org's _The City Resilient_ conference, organized in partnership with the Brooklyn Academy of Music and the Rockefeller Foundation.
 
-https://vimeo.com/71100025
+https://vimeo.com/71100025 
