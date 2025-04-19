@@ -12,7 +12,7 @@ categories:
 
 The _Digital Cities Index_ _2022_, published by The Economist "combines highlights from the DCI with expert commentary on the key factors determining success in the utilisation of digital technology in today’s cities, and uses the rankings to benchmark performance and identify the leading cities and the best practices that got them there."
 
-We were delighted to weigh in on this global assessment of the state of smart cities. Read some our insights below, and download the [full white paper.](/pdf/DCI2022_white_paper_eng.pdf)
+We were delighted to weigh in on this global assessment of the state of smart cities. Read some our insights below, and download the [full white paper.](https://impact.economist.com/perspectives/sites/default/files/download/digital_cities_index_2022.pdf)
 
 > To counter the threat of top-down digital technology imposition, cities are realising they need to engage with all their constituents. Anthony Townsend, Urbanist in Residence at Cornell Tech’s Jacobs Urban Tech Hub, speaks about a shift from “optimisation to  
 > engagement” in which the first generation of smart city approaches led by the likes of IBM, Cisco and Siemens focused on top-down, efficiency-oriented applications, and has been superseded by a more democratic approach that recognises diverse perspectives and needs.  
@@ -23,4 +23,4 @@ We were delighted to weigh in on this global assessment of the state of smart ci
 > He highlights Sidewalk and Songdo as examples of initiatives that were technologically “frozen in an earlier era”. The challenge is “coupling the physical building of the city with your digital \[version\], so that the two can move at a similar pace, and thus ensure the digital layer doesn’t get frozen and become obsolete before your physical layer is ready to open its doors. Then comes the political reality of large-scale smart cities wrapped in high-tech which are being rejected all over the place.”  
 > Instead, Mr Townsend believes that “incremental projects of 100 or 1,000 units rather than 10,000 is where we’re going to see the private sector figure out how to do this”. He considers that opportunities to deliver results lie in a smaller-scale, distributed fashion, cutting across network infrastructure, from cloud infrastructure to energy systems to mobility to construction. He cites the promising “scattered site” developments in Scandinavia and the Netherlands, like smart districts and communities.
 > 
-> [Digital Cities Index 2022,](/pdf/DCI2022_white_paper_eng.pdf) The Economist Group
+> [Digital Cities Index 2022,](https://impact.economist.com/perspectives/sites/default/files/download/digital_cities_index_2022.pdf The Economist Group

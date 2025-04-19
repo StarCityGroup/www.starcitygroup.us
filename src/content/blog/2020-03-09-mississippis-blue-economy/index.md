@@ -21,4 +21,4 @@ The oceans are at once an e xploited and under-developed resource, a mysterious 
 
 Download the report [here](/pdf/SA-Gulfport-BEID-20200124.pdf).
 
-[![](./Screen-Shot-2020-09-01-at-8.43.45-PM.png)](/images/SA-Gulfport-BEID-20200124.pdf)
+[![](./Screen-Shot-2020-09-01-at-8.43.45-PM.png)](/pdf/SA-Gulfport-BEID-20200124.pdf)
