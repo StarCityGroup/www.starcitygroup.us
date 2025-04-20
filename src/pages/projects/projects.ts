@@ -14,7 +14,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     name: 'Aging and Extreme Heat',
-    date: "current",
+    date: "2024 to present",
     description: 'Interdisciplinary applied research pioneering cross-sector responses to climate impacts.',
     demoLink: 'https://www.extremeheat.us',
     tags: ['Adaptation','Health']
@@ -22,7 +22,7 @@ export const projects: Project[] = [
   {
     name: 'RethinkAI',
     description: 'AI innovation at the city-civil society interface.',
-    date: "current",
+    date: "2024 to present",
     demoLink: 'https://www.newamerica.org/rethinkai/',
     demoLinkRel: 'nofollow noopener noreferrer',
     tags: ['AI', 'Government']
@@ -30,7 +30,7 @@ export const projects: Project[] = [
   {
     ...(await getRepositoryDetails('Cornell-Tech-Urban-Tech-Hub/atlas-of-urban-tech')),
     name: 'Atlas of Urban Tech',
-    date: "current",
+    date: "2023 to present",
     description: 'Case studies of smart city plans and districts.',
     demoLink: 'https://www.atlasofurbantech.org',
     /* postLink: '/2023-07-02-nycs-urban-tech-ecosystem/', */
@@ -38,14 +38,14 @@ export const projects: Project[] = [
   },
   {
     name: 'Bus Observatory',
-    date: "current",
+    date: "2020 to present",
     description: 'Archive of real-time transit data across multiple global cities.',
     demoLink: 'https://api.busobservatory.org',
     tags: ['Mobility','Data']
   },
   {
     name: 'Big Urban Data: A Strategic Guide for Cities',
-    date: "2019",
+    date: "2018-2019",
     description: 'A maturity model for Latin American cities to assess data initiatives.',
     demoLink: 'https://publications.iadb.org/publications/english/document/Big_Urban_Data_A_Strategic_Guide_for_Cities.pdf',
     tags: ['Mobility','Data']

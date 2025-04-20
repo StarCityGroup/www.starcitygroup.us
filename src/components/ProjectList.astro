@@ -56,14 +56,14 @@ const { projects } = Astro.props
             </a>
           }
         </h3>
-        {project.date && (
-          <div class="text-xs text-zinc-500 dark:text-zinc-400 -mt-1 mb-2">
-            {project.date}
-          </div>
-        )}
         <div class="line-clamp-2 text-zinc-600 dark:text-zinc-300 mb-4 min-h-[50px]">
           <p>{project.description}</p>
         </div>
+        {project.date && (
+          <div class="text-xs text-zinc-500 dark:text-zinc-400 mb-2">
+            {project.date}
+          </div>
+        )}
         <div class="flex justify-end gap-3">
           {
             project.postLink &&
