@@ -13,11 +13,11 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    name: 'Aging and Extreme Heat',
+    name: 'Cornell Initiative on Aging and Extreme Heat',
     date: "2024 to present",
-    description: 'Interdisciplinary applied research pioneering cross-sector responses to climate impacts.',
+    description: 'Using data to connect cross-sector responses to urban climate impacts.',
     demoLink: 'https://www.extremeheat.us',
-    tags: ['Adaptation','Health']
+    tags: ['Resilience','Health']
   },
   {
     name: 'RethinkAI',
@@ -34,7 +34,21 @@ export const projects: Project[] = [
     description: 'Case studies of smart city plans and districts.',
     demoLink: 'https://www.atlasofurbantech.org',
     /* postLink: '/2023-07-02-nycs-urban-tech-ecosystem/', */
-    tags: ['Planning', 'Real Estate']
+    tags: ['Planning', 'Economic Development']
+  },
+  {
+    name: 'How Cities Make Software Together',
+    date: "2022-2023",
+    description: 'Comparative study of 6 multi-city open source collaborations.',
+    demoLink: 'https://sites.coecis.cornell.edu/urbantech/files/2023/04/How-Cities-Make-Software-Together.pdf',
+    tags: ['Government','Innovation']
+  },
+  {
+    name: 'The Most Important Mile',
+    date: "2020",
+    description: 'Inclusive futures for urban commerce and logistics.',
+    demoLink: '/pdf/The-Most-Important-Mile.pdf',
+    tags: ['Mobility','Scenarios']
   },
   {
     name: 'Bus Observatory',
@@ -44,11 +58,18 @@ export const projects: Project[] = [
     tags: ['Mobility','Data']
   },
   {
-    name: 'Big Urban Data: A Strategic Guide for Cities',
+    name: 'Big Urban Data',
     date: "2018-2019",
     description: 'A maturity model for Latin American cities to assess data initiatives.',
     demoLink: 'https://publications.iadb.org/publications/english/document/Big_Urban_Data_A_Strategic_Guide_for_Cities.pdf',
-    tags: ['Mobility','Data']
+    tags: ['Government','Data']
+  },
+  {
+    name: 'Blue Economy Innovation District',
+    date: "2019-2020",
+    description: 'Narrative development for an ocean tech cluster in Gulfport, Mississippi.',
+    demoLink: '/pdf/SA-Gulfport-BEID-20200124.pdf',
+    tags: ['Planning','Economic Development']
   },
   
   /* {

@@ -49,19 +49,25 @@ const { projects } = Astro.props
         <h3 class="font-semibold my-2">
           <a class="underline inline whitespace-normal" href={project.demoLink} target="_blank" rel={project.demoLinkRel}>
             {project.name}
-            {project.demoLink && 
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block align-baseline ml-1"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-            }
           </a>
         </h3>
         <div class="line-clamp-2 text-zinc-600 dark:text-zinc-300 mb-4 min-h-[50px]">
           <p>{project.description}</p>
         </div>
-        {project.date && (
-          <div class="text-xs text-zinc-500 dark:text-zinc-400 mb-2">
-            {project.date}
-          </div>
-        )}
+        <div class="flex justify-between items-center mb-2">
+          {project.date ? (
+            <div class="text-xs text-zinc-500 dark:text-zinc-400">
+              {project.date}
+            </div>
+          ) : (
+            <div></div> <!-- Empty div to maintain flex layout when no date -->
+          )}
+          {project.demoLink && 
+            <a href={project.demoLink} target="_blank" rel={project.demoLinkRel} class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+            </a>
+          }
+        </div>
         <div class="flex justify-end gap-3">
           {
             project.postLink &&
