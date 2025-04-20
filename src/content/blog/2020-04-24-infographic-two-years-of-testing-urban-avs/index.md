@@ -13,6 +13,6 @@ categories:
 
 A summary of two years tracking cities' AV policy and pilot efforts at [avsincities.bloomberg.org](https://avsincities.bloomberg.org).
 
-Download: [PDF](/pdf/AVs-in-Cities-Infographic.pdf) (12 Mb)
+Download: [PDF](/pdf/AVs-in-Cities-Infographic.pdf) (2.5 Mb)
 
 ![](./AVs-in-Cities-Infographic-pdf.jpg)
