@@ -20,6 +20,7 @@ export const projects: Project[] = [
     demoLink: 'https://www.extremeheat.us',
     tags: ['Resilience','Health']
   },
+
   {
     name: 'RethinkAI',
     description: 'AI innovation at the city-civil society interface.',
@@ -40,12 +41,12 @@ export const projects: Project[] = [
     tags: ['Planning', 'Economic Development']
   },
   {
-    name: 'How Cities Make Software Together',
-    date: "2022-2023",
-    image: '/images/victor-rodriguez-IiLFMkqiFrM-unsplash-768x510.jpg',
-    description: 'Comparative study of 6 multi-city open source collaborations.',
-    demoLink: 'https://sites.coecis.cornell.edu/urbantech/files/2023/04/How-Cities-Make-Software-Together.pdf',
-    tags: ['Government','Innovation']
+    name: 'Bus Observatory',
+    image:'/images/toronto-728462_1280-768x512.jpg',
+    date: "2020 to present",
+    description: 'Archive of real-time transit data across multiple global cities.',
+    demoLink: 'https://api.busobservatory.org',
+    tags: ['Mobility','Data']
   },
   {
     name: 'The Most Important Mile',
@@ -56,12 +57,12 @@ export const projects: Project[] = [
     tags: ['Mobility','Scenarios']
   },
   {
-    name: 'Bus Observatory',
-    image:'/images/toronto-728462_1280-768x512.jpg',
-    date: "2020 to present",
-    description: 'Archive of real-time transit data across multiple global cities.',
-    demoLink: 'https://api.busobservatory.org',
-    tags: ['Mobility','Data']
+    name: 'Taming the Autonomous Vehicle',
+    date: '2017',
+    description: 'A futures primer for automated urban mobility.',
+    image: '/images/Shuttles-Scene-5-1600px-768x512.png',
+    demoLink: '/pdf/The-Most-Important-Mile.pdf',
+    tags: ['Mobility','Scenarios']
   },
   {
     name: 'Big Urban Data',
@@ -71,6 +72,19 @@ export const projects: Project[] = [
     demoLink: 'https://publications.iadb.org/publications/english/document/Big_Urban_Data_A_Strategic_Guide_for_Cities.pdf',
     tags: ['Government','Data']
   },
+
+  {
+    name: 'How Cities Make Software Together',
+    date: "2022-2023",
+    image: '/images/victor-rodriguez-IiLFMkqiFrM-unsplash-768x510.jpg',
+    description: 'Comparative study of 6 multi-city open source collaborations.',
+    demoLink: 'https://sites.coecis.cornell.edu/urbantech/files/2023/04/How-Cities-Make-Software-Together.pdf',
+    tags: ['Government','Innovation']
+  },
+
+
+
+
   {
     name: 'Blue Economy Innovation District',
     date: "2019-2020",
