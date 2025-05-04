@@ -13,10 +13,10 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    name: 'Cornell Initiative on Aging and Extreme Heat',
+    name: 'Initiative on Aging and Extreme Heat',
     date: "2024 to present",
     image:'/images/neo-newyork-tem-2002226-lrg-crop.webp',
-    description: 'Using data to connect cross-sector responses to urban climate impacts.',
+    description: 'Data-driven climate adaptation.',
     demoLink: 'https://www.extremeheat.us',
     tags: ['Resilience','Health']
   },
