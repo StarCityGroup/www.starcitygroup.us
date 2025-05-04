@@ -118,6 +118,20 @@ const allPosts = (await getCollection('blog')).sort((a: BlogPost, b: BlogPost) =
 		.post-item {
 			padding: 8px 0;
 		}
+		/* Media queries for better tablet/iPad support */
+		@media (min-width: 768px) and (max-width: 1023px) {
+			.hero-title {
+				font-size: 3.5rem;
+			}
+			.post-item {
+				padding: 6px 0;
+			}
+			.book-cover {
+				max-width: 85%;
+				margin: 0 auto;
+				display: block;
+			}
+		}
 	</style>
 	<div class="relative min-h-screen">
 		<!-- Full-screen banner image with overlay -->
@@ -134,8 +148,8 @@ const allPosts = (await getCollection('blog')).sort((a: BlogPost, b: BlogPost) =
 		<div class="relative z-10">
 			<div class='container px-4 mx-auto max-w-6xl'>
 				<section class='py-12 md:py-20'>
-					<!-- First row -->
-					<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+					<!-- First row: visible on desktop and tablet, hidden on mobile -->
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 hidden sm:grid">
 						<!-- Hero Panel -->
 						<div class="content-panel">
 							<h1 class="hero-title">We make sense of urban technologies.</h1>
@@ -143,7 +157,7 @@ const allPosts = (await getCollection('blog')).sort((a: BlogPost, b: BlogPost) =
 							<p class="hero-text">We work with government agencies, non-profits, and companies to make sense of emerging technologies and identify disruptions before they happen.</p>
 						</div>
 
-							<!-- Books Panel (replaces Recent Posts) -->
+						<!-- Books Panel -->
 						<div class="content-panel">
 							<div class="header-row">
 								<h2 class="text-xl font-semibold">Books</h2>
@@ -157,7 +171,7 @@ const allPosts = (await getCollection('blog')).sort((a: BlogPost, b: BlogPost) =
 										src={GhostRoadCover.src} 
 										alt="Ghost Road: Beyond the Driverless Car" 
 										class="book-cover"
-										/>
+									/>
 								</a>
 								
 								<!-- Smart Cities Book -->
@@ -172,18 +186,123 @@ const allPosts = (await getCollection('blog')).sort((a: BlogPost, b: BlogPost) =
 						</div>
 					</div>
 					
-					<!-- Second row -->
-					<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-						<!-- Recent Posts Panel (moved to second row) -->
+						<!-- Mobile layout: single column in specific order -->
+					<div class="grid grid-cols-1 gap-6 mb-6 sm:hidden">
+						<!-- Hero Panel -->
+						<div class="content-panel">
+							<h1 class="hero-title text-3xl">We make sense of urban technologies.</h1>
+							<p class="hero-text">Rapid technological change can be terrifying.</p>
+							<p class="hero-text">We work with government agencies, non-profits, and companies to make sense of emerging technologies and identify disruptions before they happen.</p>
+						</div>
+
+						<!-- Books Panel -->
+						<div class="content-panel">
+							<div class="header-row">
+								<h2 class="text-xl font-semibold">Books</h2>
+								<a href="/books/" class="view-all">View books »</a>
+							</div>
+							
+							<div class="grid grid-cols-2 gap-4 mt-4">
+								<!-- Ghost Road Book -->
+								<a href="/books/" class="book-card">
+									<img 
+										src={GhostRoadCover.src} 
+										alt="Ghost Road: Beyond the Driverless Car" 
+										class="book-cover"
+									/>
+								</a>
+								
+								<!-- Smart Cities Book -->
+								<a href="/books/" class="book-card">
+									<img 
+										src="/images/SmartCities_Cover.png" 
+										alt="Smart Cities: Big Data, Civic Hackers, and the Quest For A New Utopia" 
+										class="book-cover"
+									/>
+								</a>
+							</div>
+						</div>
+						
+						<!-- Recent Posts Panel -->
 						<div class="content-panel">
 							<div class="header-row">
 								<h2 class="text-xl font-semibold">Recent Posts</h2>
-								<a href="/posts/" class="view-all">All posts »</a>
+								<a href="/" class="view-all">All posts »</a>
 							</div>
 
 							<div class="posts-list">
 								{allPosts.length > 0 ? (
-									<div class="space-y-3">
+									<div class="space-y-4">
+										{allPosts.slice(0, 5).map((post: BlogPost) => (
+											<div class="flex items-baseline post-item">
+												<div class="date-label">
+													{new Date(post.data.pubDate).toLocaleDateString('en-US', {
+														year: 'numeric',
+														month: 'short', 
+														day: '2-digit'
+													})}
+												</div>
+												<a href={`/${post.slug}/`} class="post-title hover:underline">{post.data.title}</a>
+											</div>
+										))}
+									</div>
+								) : (
+									<div class="no-posts-message">
+										<p>No posts available at this time.</p>
+									</div>
+								)}
+							</div>
+						</div>
+						
+						<!-- Projects Panel -->
+						<div class="content-panel">
+							<div class="header-row">
+								<h2 class="text-xl font-semibold">Projects</h2>
+								<a href="/projects/" class="view-all">All projects »</a>
+							</div>
+
+							<p class="mb-4 text-sm text-gray-600">Explore some of our most impactful work. (Links open external sites).</p>
+
+							<div class="grid grid-cols-1 gap-4">
+								{top6Projects.slice(0, 2).map((project) => (
+									<a href={project.url} class="project-card group">
+										<div class="relative">
+											{project.image && (
+												<>
+													<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+													<div class="absolute bottom-0 left-0 p-3 z-20">
+														<span class="inline-block px-3 py-1 text-xs rounded bg-white/80 text-black font-medium">{project.date}</span>
+													</div>
+													<img
+														src={project.image}
+														alt={project.title}
+														class="w-full h-[180px] object-cover"
+													/>
+												</>
+											)}
+										</div>
+										<div class="p-3 bg-white/50">
+											<h3 class="font-medium text-black group-hover:underline">{project.name}</h3>
+											<p class="text-sm text-gray-700 mt-1">{project.description}</p>
+										</div>
+									</a>
+								))}
+							</div>
+						</div>
+					</div>
+					
+					<!-- Second row - desktop and tablet only -->
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-6 hidden sm:grid">
+						<!-- Recent Posts Panel -->
+						<div class="content-panel">
+							<div class="header-row">
+								<h2 class="text-xl font-semibold">Recent Posts</h2>
+								<a href="/" class="view-all">All posts »</a>
+							</div>
+
+							<div class="posts-list">
+								{allPosts.length > 0 ? (
+									<div class="space-y-4">
 										{allPosts.slice(0, 10).map((post: BlogPost) => (
 											<div class="flex items-baseline post-item">
 												<div class="date-label">
@@ -193,7 +312,7 @@ const allPosts = (await getCollection('blog')).sort((a: BlogPost, b: BlogPost) =
 														day: '2-digit'
 													})}
 												</div>
-												<a href={`/posts/${post.slug}/`} class="post-title hover:underline">{post.data.title}</a>
+												<a href={`/${post.slug}/`} class="post-title hover:underline">{post.data.title}</a>
 											</div>
 										))}
 									</div>
@@ -227,7 +346,7 @@ const allPosts = (await getCollection('blog')).sort((a: BlogPost, b: BlogPost) =
 													<img
 														src={project.image}
 														alt={project.title}
-														class="w-full h-[140px] object-cover" <!-- Adjusted height for more square appearance -->
+														class="w-full h-[140px] object-cover"
 													/>
 												</>
 											)}
