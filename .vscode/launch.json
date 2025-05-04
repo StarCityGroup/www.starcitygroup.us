@@ -1,14 +1,21 @@
 {
   "version": "0.2.0",
   "configurations": [
-    {
+/*     {
       "command": "./node_modules/.bin/astro dev",
       "name": "Development server",
       "request": "launch",
-      "type": "node-terminal",
-      "env": {
-        "SITE": "https://www.starcitygroup.us"
-      }
+      "type": "node-terminal"
+    }, */
+    {
+      "name": "Astro Dev Server",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "astro", "--", "dev"],
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
+      "cwd": "${workspaceFolder}"
     }
   ]
 }
