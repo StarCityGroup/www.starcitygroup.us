@@ -88,6 +88,10 @@ const allPosts = (await getCollection('blog')).sort((a: BlogPost, b: BlogPost) =
 			margin-bottom: 1rem;
 			color: #333;
 		}
+		 /* Bottom padding for scrolling */
+		.main-content-container {
+			padding-bottom: 60px;
+		}
 		/* Books panel styles */
 		.book-card {
 			border-radius: 8px;
@@ -146,7 +150,7 @@ const allPosts = (await getCollection('blog')).sort((a: BlogPost, b: BlogPost) =
 		
 		<!-- Floating content over the banner image -->
 		<div class="relative z-10">
-			<div class='container px-4 mx-auto max-w-6xl'>
+			<div class='container px-4 mx-auto max-w-6xl main-content-container'>
 				<section class='py-12 md:py-20'>
 					<!-- First row: visible on desktop and tablet, hidden on mobile -->
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 hidden sm:grid">
