@@ -5,19 +5,23 @@ import Footer from './components/Footer.astro';
 import { loadEnv } from 'vite';
 
 const { GTAG_MEASUREMENT_ID } = loadEnv(process.env.NODE_ENV || 'production', process.cwd(), '');
-const { title, description, image } = Astro.props;
+const { title, description, image, isHomePage } = Astro.props;
+
+// Calculate the URL path from Astro.url
+const path = Astro.url.pathname;
+const isHome = path === '/' || path === '/index.html' || isHomePage;
 ---
 
 <!doctype html>
-<html lang='en'>
+<html lang='en' class={isHome ? 'homepage' : ''}>
 	<head>
 		<BaseHead title={title} description={description} image={image} />
 	</head>
 	<body
-		class="bg-white dark:bg-zinc-900 dark:text-zinc-100 pt-16 sm:pt-0"
+		class={`bg-white dark:bg-zinc-900 dark:text-zinc-100 ${isHome ? 'home-body' : 'pt-16 sm:pt-0'}`}
 	>
 		<Header/>
-		<div class='py-8 min-h-[calc(100vh-160px)]'>
+		<div class={`min-h-[calc(100vh-160px)] ${isHome ? '' : 'py-8'}`}>
 			<slot />
 		</div>
 		<Footer />
@@ -39,3 +43,14 @@ const { title, description, image } = Astro.props;
     }
 	</body>
 </html>
+
+<style is:global>
+	.home-body {
+		padding-top: 0 !important;
+	}
+	
+	.homepage .py-8 {
+		padding-top: 0 !important;
+		padding-bottom: 0 !important;
+	}
+</style>
