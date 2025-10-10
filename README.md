@@ -1,64 +1,93 @@
 # Star City Group
 
-Official website for Star City Group, a consultancy that helps cities, non-profits, and companies make sense of emerging urban technologies.
+Official website for [Star City Group](https://www.starcitygroup.us), a consultancy helping cities, non-profits, and companies navigate emerging urban technologies.
 
-## About Star City Group
+## About
 
-Star City Group is led by Dr. Anthony Townsend, working around the world with industry, government and philanthropy on urban tech foresight, policy, and planning studies. The group specializes in:
+Star City Group is led by **Dr. Anthony Townsend**, an internationally recognized expert on urban technology and innovation. We work globally with industry, government, and philanthropy on urban tech foresight, policy, and planning studies.
 
-- Research and foresight studies on emerging urban technologies
-- Strategic advising for cities and organizations
-- Policy development for smart city initiatives
-- Planning for automation, data, and civic technology
+### Expertise
 
-This website showcases Star City Group's work, publications, projects, and insights on the future of cities and technology.
+- **Foresight & Research** — Emerging urban technologies and their societal impacts
+- **Strategic Advisory** — Guidance for cities, companies, and organizations
+- **Policy Development** — Smart city governance and regulatory frameworks
+- **Planning Studies** — Automation, urban data, and civic technology
 
-## Website Features
+### Publications
 
-- Portfolio of projects and case studies
-- Blog with insights on urban technology trends
-- Information about Dr. Townsend's books including "Smart Cities" and "Ghost Road"
-- Resources and publications on urban technology
+Dr. Townsend is the author of influential books on urban technology:
+- *Smart Cities: Big Data, Civic Hackers, and the Quest for a New Utopia* (2013)
+- *Ghost Road: Beyond the Driverless Car* (2020)
 
-## 🚀 Project Structure
+## Technical Stack
 
-Inside of the Astro project, you'll see the following folders and files:
+This website is built with [Astro](https://astro.build), a modern static site generator optimized for content-rich websites.
+
+### Project Structure
 
 ```text
-├── public/
+├── public/             # Static assets (images, fonts, etc.)
 ├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-│   └── styles/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+│   ├── assets/        # Project assets processed by Astro
+│   ├── components/    # Reusable Astro/UI components
+│   ├── content/       # Markdown/MDX content collections
+│   ├── layouts/       # Page layout templates
+│   ├── pages/         # File-based routing
+│   └── styles/        # Global styles and CSS
+├── astro.config.mjs   # Astro configuration
+├── package.json       # Dependencies and scripts
+└── tsconfig.json      # TypeScript configuration
 ```
 
-This website is built with Astro, which looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+### Content Organization
 
-The `src/content/` directory contains collections of related Markdown and MDX documents, primarily blog posts and project descriptions.
+- **Pages** — `.astro` and `.md` files in `src/pages/` are automatically routed
+- **Collections** — Blog posts and project case studies in `src/content/`
+- **Static Assets** — Files in `public/` are served as-is at the root path
 
-Any static assets, like images, are placed in the `public/` directory.
+## Development
 
-## 🧞 Commands
+### Prerequisites
 
-All commands are run from the root of the project, from a terminal:
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- [pnpm](https://pnpm.io/) package manager
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm run dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm run build`           | Build your production site to `./dist/`          |
-| `pnpm run preview`         | Preview your build locally, before deploying     |
-| `pnpm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm run astro -- --help` | Get help using the Astro CLI                     |
+### Commands
 
-## 👀 Want to learn more?
+| Command | Action |
+|---------|--------|
+| `pnpm install` | Install dependencies |
+| `pnpm run dev` | Start development server at `localhost:4321` |
+| `pnpm run build` | Build production site to `./dist/` |
+| `pnpm run preview` | Preview production build locally |
+| `pnpm run astro ...` | Run Astro CLI commands |
+| `pnpm run astro check` | Type-check and validate project |
 
-Check out [Astro documentation](https://docs.astro.build).
+### Getting Started
 
+1. Clone the repository
+2. Install dependencies: `pnpm install`
+3. Start dev server: `pnpm run dev`
+4. Open [http://localhost:4321](http://localhost:4321)
+
+## Deployment
+
+The site is configured for deployment on modern hosting platforms that support static sites (Netlify, Vercel, Cloudflare Pages, etc.).
+
+Build the production site:
+
+```bash
+pnpm run build
+```
+
+The optimized static files will be generated in `./dist/`.
+
+## License
+
+© Star City Group. All rights reserved.
+
+## Resources
+
+- [Astro Documentation](https://docs.astro.build)
+- [Star City Group Website](https://www.starcitygroup.us)
+- [Dr. Anthony Townsend](https://www.starcitygroup.us/about)
