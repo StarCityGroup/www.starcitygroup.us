@@ -33,7 +33,7 @@ const postsData = allPosts.map(post => ({
   }),
   description: post.data.description || '',
   url: `/${post.slug}/`,
-  image: post.data.heroImage,
+  image: post.data.coverImage,
   tags: post.data.tags || [],
   sortDate: post.data.pubDate
 })).sort((a, b) => b.sortDate.valueOf() - a.sortDate.valueOf());
