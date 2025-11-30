@@ -3,57 +3,199 @@ import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Anthony from '@src/assets/img/anthonytownsend.png';
 import Prose from '../components/Prose.astro';
-
 ---
 
 <BaseLayout
-	title="About Us"
-	description="Star City Group and Anthony M. Townsend"
+	title="About Anthony Townsend"
+	description="Dr. Anthony Townsend - urbanist, author, and researcher exploring the future of cities and technology"
 >
   <div class='container'>
-		<main class='prose text-lg dark:prose-invert'>
+		<style>
+			.about-hero {
+				background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
+				border-radius: 16px;
+				padding: 3rem;
+				margin-bottom: 4rem;
+			}
+
+			.dark .about-hero {
+				background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+			}
+
+			.focus-area {
+				padding: 2rem;
+				border-radius: 12px;
+				background: white;
+				border: 1px solid rgba(0, 0, 0, 0.1);
+				transition: all 0.3s ease;
+			}
+
+			.dark .focus-area {
+				background: rgba(255, 255, 255, 0.05);
+				border-color: rgba(255, 255, 255, 0.1);
+			}
+
+			.focus-area:hover {
+				transform: translateY(-4px);
+				box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+			}
+
+			.dark .focus-area:hover {
+				box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+			}
+
+			.principle-card {
+				padding: 1.5rem;
+				border-left: 4px solid rgb(59, 130, 246);
+				background: rgba(59, 130, 246, 0.05);
+				border-radius: 8px;
+			}
+
+			.dark .principle-card {
+				background: rgba(59, 130, 246, 0.1);
+			}
+		</style>
+
+		<main class='prose text-lg dark:prose-invert max-w-none'>
       <article>
-        <div class="text-pretty leading-9">
-          <h1 class="text-4xl font-bold mb-4">We help put urban tech in context.</h1>
-          <Prose>
-            <div class="text-lg">
- 
-              <p>Star City Group specializes in helping cities, organizations, and companies navigate the rapidly evolving landscape of urban technology. Through foresight studies, strategic advising, policy development, and practical planning, we bridge the gap between emerging technologies and real-world urban challenges.</p>
-              
-              <h2 class="text-2xl mb-4">Our Areas of Focus</h2>
-              
-              <ul class="list-disc pl-6 mb-6">
-                <li><strong>Smart Cities & Urban Innovation</strong> - We've been at the forefront of the smart cities movement since its inception, helping organizations navigate from top-down efficiency-oriented approaches to more democratic, inclusive models.</li>
-                <li><strong>Mobility Futures</strong> - From autonomous vehicles to public transit innovations, we explore how transportation technology transforms urban movement of people and goods.</li>
-                <li><strong>Urban Data & Analytics</strong> - We help cities harness the power of data for decision-making, developing maturity models and frameworks for ethical data governance.</li>
-                <li><strong>Resilience & Adaptation</strong> - Our work addresses how cities can leverage technology to face climate change, pandemics, and other challenges through adaptive strategies.</li>
-                <li><strong>Digital Infrastructure</strong> - We guide municipal governments in developing robust digital infrastructure that supports innovation and improves service delivery.</li>
-              </ul>
-              
-              <h2 class="text-2xl mb-4">Our Approach</h2>
+        <div class="about-hero">
+					<div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
+						<div class="md:w-1/3">
+							<Image
+								src={Anthony}
+								alt="Anthony Townsend"
+								class="rounded-2xl shadow-xl w-full"
+							/>
+						</div>
+						<div class="md:w-2/3">
+							<h1 class="text-5xl font-bold mb-4">Anthony M. Townsend</h1>
+							<p class="text-2xl text-zinc-600 dark:text-zinc-300 mb-6">
+								Urbanist, author, and researcher exploring the future of cities and technology
+							</p>
+						</div>
+					</div>
+				</div>
 
-                <ul class="list-disc pl-6 mb-6">
-                  <li><strong>We are ethical.</strong> We put people before profits. That isn't always easy, and sometimes means we lose business. But we'll try to change your point of view first.</li>
-                  <li><strong>We don't just talk.</strong> We are builders who code, design space, prototype hardware, write charters, and deploy networks.</li>
-                  <li><strong>We are a dynamic team.</strong> We gather the right team for every project. Our collaborators hail from diverse geographies and disciplines.</li>
-                  <li><strong>We focus on you.</strong> We typically only take on a single project at a time. That means if we're working with you, we're focused exclusively on you.</li>
-                </ul>
+        <Prose>
+          <div class="text-lg space-y-8">
+						<section>
+							<p class="text-xl leading-relaxed">
+								Dr. Anthony Townsend is President and Founder of <strong>Star City Group</strong>, where he works around the world with industry, government and philanthropy on urban tech foresight, policy, and planning studies.
+							</p>
+						</section>
 
-              <div class='w-full md:flex md:items-start gap-16 mb-10'>
-                <div>
-                  <h2 class="text-3xl mb-4">Dr. Anthony Townsend</h2>
+						<section>
+							<h2 class="text-3xl font-bold mb-6">Academic & Research Leadership</h2>
 
-                  <p>Dr. Anthony Townsend is President and Founder of Star City Group, where he works around the world with industry, government and philanthropy on urban tech foresight, policy, and planning studies.</p> 
-                                    
-                  <p>Anthony is the author of two acclaimed books published by W.W. Norton & Co.: <em>Ghost Road: Beyond the Driverless Car</em> (2020) and <em>Smart Cities: Big Data, Civic Hackers, and the Quest for A New Utopia</em> (2013). His work has influenced global debates on technology and urbanism, with particular focus on transforming traditional approaches to creating more connected, livable, efficient, and equitable cities.</p>
-                  
-                  <p>Dr. Towsnend is Senior Research Associate at Cornell Tech's Jacobs Urban Tech Hub, where he leads multi-disciplinary research collaborations connecting university researchers with stakeholders in industry, government, and civil society. As part of the Hub's founding team, he directs applied research and teaches courses on smart cities engineering. Major projects Anthony currently leads include the <a href="https://www.extremeheat.us">Cornell Initiative on Aging and Adaptation to Extreme Heat</a>, <a href="https://www.newamerica.org/rethinkai/">RethinkAI</a> (a collaboration with New America Foundation), and the <a href="https://www.atlasofurbantech.org">Atlas of Urban Tech</a>.</p>
-                </div>
-                <Image src={Anthony} alt="Anthony Townsend" width={300} class="rounded-3xl mt-4 md:mt-0"/>
-              </div>
-            </div>
-          </Prose>
-        </div>
+							<p>Anthony is Senior Research Associate at Cornell Tech's <a href="https://www.jacobs.cornell.edu" target="_blank">Jacobs Urban Tech Hub</a>, where he leads multi-disciplinary research collaborations connecting university researchers with stakeholders in industry, government, and civil society. As part of the Hub's founding team, he directs applied research and teaches courses on smart cities engineering.</p>
+
+							<p>Major projects Anthony currently leads include:</p>
+							<ul class="list-disc pl-6 mb-6">
+								<li><a href="https://www.extremeheat.us" target="_blank">Cornell Initiative on Aging and Adaptation to Extreme Heat</a></li>
+								<li><a href="https://www.newamerica.org/rethinkai/" target="_blank">RethinkAI</a> (a collaboration with New America Foundation)</li>
+								<li><a href="https://www.atlasofurbantech.org" target="_blank">Atlas of Urban Tech</a></li>
+							</ul>
+						</section>
+
+						<section>
+							<h2 class="text-3xl font-bold mb-6">Published Works</h2>
+
+							<p>Anthony is the author of two acclaimed books published by W.W. Norton & Co.:</p>
+
+							<div class="space-y-4 my-6">
+								<div class="principle-card">
+									<h3 class="text-xl font-bold mb-2">Ghost Road: Beyond the Driverless Car (2020)</h3>
+									<p class="mb-2">A comprehensive exploration of how autonomous vehicle technology will transform cities, transportation, and society. Named to Strategy+Business "Best Business Books of 2020" list.</p>
+									<a href="/books/" class="text-blue-600 dark:text-blue-400 hover:underline">Learn more →</a>
+								</div>
+
+								<div class="principle-card">
+									<h3 class="text-xl font-bold mb-2">Smart Cities: Big Data, Civic Hackers, and the Quest For A New Utopia (2013)</h3>
+									<p class="mb-2">A seminal work documenting the emergence of the smart cities movement, examining the motivations, aspirations, and shortcomings of key actors shaping the new urban frontier.</p>
+									<a href="/books/" class="text-blue-600 dark:text-blue-400 hover:underline">Learn more →</a>
+								</div>
+							</div>
+
+							<p>His work has influenced global debates on technology and urbanism, with particular focus on transforming traditional approaches to creating more connected, livable, efficient, and equitable cities.</p>
+						</section>
+
+						<section class="mb-12">
+							<h2 class="text-3xl font-bold mb-6">Areas of Expertise</h2>
+
+							<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+								<div class="focus-area">
+									<h3 class="text-xl font-bold mb-3">Smart Cities & Urban Innovation</h3>
+									<p class="text-base">At the forefront of the smart cities movement since its inception, helping organizations navigate from top-down efficiency-oriented approaches to more democratic, inclusive models.</p>
+								</div>
+
+								<div class="focus-area">
+									<h3 class="text-xl font-bold mb-3">Mobility Futures</h3>
+									<p class="text-base">Exploring how transportation technology transforms urban movement of people and goods, from autonomous vehicles to public transit innovations.</p>
+								</div>
+
+								<div class="focus-area">
+									<h3 class="text-xl font-bold mb-3">Urban Data & Analytics</h3>
+									<p class="text-base">Helping cities harness the power of data for decision-making, developing maturity models and frameworks for ethical data governance.</p>
+								</div>
+
+								<div class="focus-area">
+									<h3 class="text-xl font-bold mb-3">Digital Infrastructure</h3>
+									<p class="text-base">Guiding municipal governments in developing robust digital infrastructure that supports innovation and improves service delivery.</p>
+								</div>
+
+								<div class="focus-area">
+									<h3 class="text-xl font-bold mb-3">Resilience & Adaptation</h3>
+									<p class="text-base">Addressing how cities can leverage technology to face climate change, pandemics, and other challenges through adaptive strategies.</p>
+								</div>
+
+								<div class="focus-area">
+									<h3 class="text-xl font-bold mb-3">Urban AI</h3>
+									<p class="text-base">Examining the implications of artificial intelligence for urban governance, planning, and civic engagement.</p>
+								</div>
+							</div>
+						</section>
+
+						<section>
+							<h2 class="text-3xl font-bold mb-6">About Star City Group</h2>
+
+							<p>Star City Group specializes in helping cities, organizations, and companies navigate the rapidly evolving landscape of urban technology. Through foresight studies, strategic advising, policy development, and practical planning, we bridge the gap between emerging technologies and real-world urban challenges.</p>
+
+							<h3 class="text-2xl font-bold mt-8 mb-4">Our Approach</h3>
+
+							<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+								<div class="principle-card">
+									<h4 class="font-bold mb-2">We are ethical</h4>
+									<p class="text-base">We put people before profits. That isn't always easy, and sometimes means we lose business. But we'll try to change your point of view first.</p>
+								</div>
+
+								<div class="principle-card">
+									<h4 class="font-bold mb-2">We don't just talk</h4>
+									<p class="text-base">We are builders who code, design space, prototype hardware, write charters, and deploy networks.</p>
+								</div>
+
+								<div class="principle-card">
+									<h4 class="font-bold mb-2">We are a dynamic team</h4>
+									<p class="text-base">We gather the right team for every project. Our collaborators hail from diverse geographies and disciplines.</p>
+								</div>
+
+								<div class="principle-card">
+									<h4 class="font-bold mb-2">We focus on you</h4>
+									<p class="text-base">We typically only take on a single project at a time. That means if we're working with you, we're focused exclusively on you.</p>
+								</div>
+							</div>
+						</section>
+
+						<section class="pt-8 border-t border-zinc-200 dark:border-zinc-700">
+							<h2 class="text-3xl font-bold mb-6">Get in Touch</h2>
+							<p class="text-xl">
+								Interested in collaborating or learning more about our work?
+								<a href="mailto:anthony@starcitygroup.us" class="text-blue-600 dark:text-blue-400 hover:underline font-semibold">
+									Contact us
+								</a>
+							</p>
+						</section>
+          </div>
+        </Prose>
       </article>
     </main>
   </div>

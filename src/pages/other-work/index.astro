@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import { projects } from '../projects/projects';
+
+type BlogPost = CollectionEntry<'blog'>;
+
+// Get all posts sorted by date
+const allPosts = (await getCollection('blog')).sort((a: BlogPost, b: BlogPost) =>
+  b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+// Combine projects and posts into a single array with unified structure
+const allWork = [
+  ...projects.map(project => ({
+    type: 'project' as const,
+    title: project.name,
+    date: project.date,
+    description: project.description || '',
+    url: project.demoLink,
+    image: project.image,
+    tags: project.tags || [],
+    sortDate: new Date(project.date.split(' ')[0]) // Extract year for sorting
+  })),
+  ...allPosts.map(post => ({
+    type: 'post' as const,
+    title: post.data.title,
+    date: post.data.pubDate.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    }),
+    description: post.data.description || '',
+    url: `/${post.slug}/`,
+    image: post.data.heroImage,
+    tags: post.data.tags || [],
+    sortDate: post.data.pubDate
+  }))
+].sort((a, b) => b.sortDate.valueOf() - a.sortDate.valueOf());
+
+// Group by year
+const workByYear = allWork.reduce((acc, item) => {
+  const year = item.sortDate.getFullYear();
+  if (!acc[year]) {
+    acc[year] = [];
+  }
+  acc[year].push(item);
+  return acc;
+}, {} as Record<number, typeof allWork>);
+
+const years = Object.keys(workByYear).sort((a, b) => Number(b) - Number(a));
+---
+
+<BaseLayout
+  title="Other Work"
+  description="Projects, publications, and writing by Anthony Townsend and Star City Group"
+>
+  <div class='container'>
+    <div class="mb-10">
+      <h1 class="text-4xl font-bold mb-4">Other Work</h1>
+      <p class="text-zinc-700 dark:text-zinc-300 text-lg mb-6">
+        A chronological archive of projects, reports, essays, and other writing.
+      </p>
+    </div>
+
+    <style>
+      .work-item {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .work-item:hover {
+        transform: translateY(-2px);
+      }
+      .work-badge {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+        border-radius: 9999px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .work-badge.project {
+        background-color: rgba(59, 130, 246, 0.1);
+        color: rgb(59, 130, 246);
+      }
+      .dark .work-badge.project {
+        background-color: rgba(59, 130, 246, 0.2);
+        color: rgb(147, 197, 253);
+      }
+      .work-badge.post {
+        background-color: rgba(168, 85, 247, 0.1);
+        color: rgb(168, 85, 247);
+      }
+      .dark .work-badge.post {
+        background-color: rgba(168, 85, 247, 0.2);
+        color: rgb(216, 180, 254);
+      }
+    </style>
+
+    {years.map(year => (
+      <div class="mb-12">
+        <h2 class="text-2xl font-bold mb-6 text-zinc-800 dark:text-zinc-100">{year}</h2>
+        <div class="space-y-4">
+          {workByYear[Number(year)].map(item => (
+            <a
+              href={item.url}
+              class="work-item block p-6 rounded-lg bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:shadow-lg"
+              target={item.type === 'project' ? '_blank' : undefined}
+              rel={item.type === 'project' ? 'noopener noreferrer' : undefined}
+            >
+              <div class="flex flex-col md:flex-row gap-6">
+                {item.image && (
+                  <div class="md:w-48 flex-shrink-0">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      class="w-full h-32 md:h-full object-cover rounded-lg"
+                    />
+                  </div>
+                )}
+                <div class="flex-1">
+                  <div class="flex items-start justify-between gap-4 mb-2">
+                    <h3 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                      {item.title}
+                    </h3>
+                    <span class={`work-badge ${item.type}`}>
+                      {item.type}
+                    </span>
+                  </div>
+                  <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-3">{item.date}</p>
+                  {item.description && (
+                    <p class="text-zinc-700 dark:text-zinc-300 mb-3">
+                      {item.description}
+                    </p>
+                  )}
+                  {item.tags.length > 0 && (
+                    <div class="flex flex-wrap gap-2">
+                      {item.tags.map(tag => (
+                        <span class="text-xs px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-700 text-zinc-600 dark:text-zinc-400">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</BaseLayout>

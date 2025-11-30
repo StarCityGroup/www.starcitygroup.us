@@ -4,367 +4,258 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
-import Prose from '../components/Prose.astro';
 import { projects } from './projects/projects';
-import ProjectList from '../components/ProjectList.astro'
-import PostItem from '../components/PostItem.astro';
 import Banner from '@src/assets/img/lisheng-chang-M2524ncJQ40-unsplash.jpg';
-// Import book cover images
+import Anthony from '@src/assets/img/anthonytownsend.png';
 import GhostRoadCover from '/public/images/ghostroad-cover.png';
 import SmartCitiesCover from '/public/images/smartcities-cover-full.jpg';
 
 type BlogPost = CollectionEntry<'blog'>;
 
-const top6Projects = projects.slice(0, 6);
-// Get all posts for dynamic display
+// Get recent posts
 const allPosts = (await getCollection('blog')).sort((a: BlogPost, b: BlogPost) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const recentWork = allPosts.slice(0, 6);
 ---
 
 <BaseLayout title={SITE_TITLE + ' - ' + SITE_TAGLINE} description={SITE_DESCRIPTION} isHomePage={true}>
 	<style is:global>
-		/* Target body on homepage with higher specificity */
 		html body {
 			padding-top: 0 !important;
 		}
-		.content-panel {
-			background-color: rgba(255, 255, 255, 0.65);
-			backdrop-filter: blur(6px);
-			border-radius: 8px;
-			padding: 24px;
-		}
-		.date-label {
-			font-size: 0.875rem;
-			color: #444;
-			width: 100px;
-			flex-shrink: 0;
-		}
-		.post-title {
-			color: #111;
-			font-weight: 500;
-		}
-		.header-row {
+
+		.hero-container {
+			min-height: 85vh;
 			display: flex;
-			justify-content: space-between;
 			align-items: center;
-			border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-			padding-bottom: 12px;
-			margin-bottom: 16px;
 		}
-		.view-all {
-			font-size: 0.875rem;
-			color: #444;
-			text-decoration: none;
+
+		.hero-content {
+			max-width: 900px;
 		}
-		.view-all:hover {
-			text-decoration: underline;
-		}
-		.project-card {
-			border-radius: 8px;
-			overflow: hidden;
-			display: flex;
-			flex-direction: column;
-		}
-		.project-card img {
-			width: 100%;
-			height: 180px;
-			object-fit: cover;
-		}
-		/* Hero title and text styles */
+
 		.hero-title {
-			font-size: 3.0rem;
-			font-weight: 700;
+			font-size: 3.5rem;
+			font-weight: 800;
 			line-height: 1.1;
 			margin-bottom: 1.5rem;
-			color: #111;
+			color: white;
+			text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 		}
+
 		@media (min-width: 768px) {
 			.hero-title {
-				font-size: 4.5rem;
+				font-size: 5rem;
 			}
 		}
-		.hero-text {
-			font-size: 1.25rem;
-			line-height: 1.5;
-			margin-bottom: 1rem;
-			color: #333;
+
+		.hero-subtitle {
+			font-size: 1.5rem;
+			line-height: 1.6;
+			color: rgba(255, 255, 255, 0.95);
+			font-weight: 400;
+			text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
 		}
-		 /* Bottom padding for scrolling */
-		.main-content-container {
-			padding-bottom: 60px;
+
+		.section-title {
+			font-size: 2.5rem;
+			font-weight: 700;
+			margin-bottom: 2rem;
+			color: #111;
 		}
-		/* Books panel styles */
+
+		.dark .section-title {
+			color: #fff;
+		}
+
 		.book-card {
-			border-radius: 8px;
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+			border-radius: 12px;
 			overflow: hidden;
-			transition: transform 0.3s ease;
 		}
+
 		.book-card:hover {
-			transform: translateY(-5px);
+			transform: translateY(-8px);
+			box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 		}
+
 		.book-cover {
 			width: 100%;
 			height: auto;
-			object-fit: cover;
 			border-radius: 8px;
-			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+			box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 		}
-		.book-title {
-			font-size: 0.9rem;
-			font-weight: 600;
-			margin-top: 0.5rem;
-			text-align: center;
+
+		.work-item {
+			transition: all 0.2s ease;
 		}
-		/* Posts panel styles */
-		.posts-list {
-			max-height: 100%;
-			overflow-y: auto;
+
+		.work-item:hover {
+			transform: translateX(4px);
 		}
-		.post-item {
-			padding: 8px 0;
+
+		.content-section {
+			padding: 5rem 0;
 		}
-		/* Media queries for better tablet/iPad support */
-		@media (min-width: 768px) and (max-width: 1023px) {
+
+		@media (max-width: 768px) {
+			.content-section {
+				padding: 3rem 0;
+			}
 			.hero-title {
-				font-size: 3.5rem;
+				font-size: 2.5rem;
 			}
-			.post-item {
-				padding: 6px 0;
+			.hero-subtitle {
+				font-size: 1.25rem;
 			}
-			.book-cover {
-				max-width: 85%;
-				margin: 0 auto;
-				display: block;
+			.section-title {
+				font-size: 2rem;
 			}
+		}
+
+		.author-intro {
+			background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
+			border-radius: 16px;
+			padding: 3rem;
+		}
+
+		.dark .author-intro {
+			background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
 		}
 	</style>
-	<div class="relative min-h-screen">
-		<!-- Full-screen banner image with overlay -->
+
+	<!-- Hero Section -->
+	<div class="relative">
 		<div class="absolute inset-0 z-0">
-			<img 
-				src={Banner.src} 
-				alt="Banner" 
+			<img
+				src={Banner.src}
+				alt="Banner"
 				class="w-full h-full object-cover"
 			/>
-			<div class="absolute inset-0 bg-black bg-opacity-30"></div>
+			<div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60"></div>
 		</div>
-		
-		<!-- Floating content over the banner image -->
-		<div class="relative z-10">
-			<div class='container px-4 mx-auto max-w-6xl main-content-container'>
-				<section class='py-12 md:py-20'>
-					<!-- First row: visible on desktop and tablet, hidden on mobile -->
-					<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 hidden sm:grid">
-						<!-- Hero Panel -->
-						<div class="content-panel">
-							<h1 class="hero-title">We make sense of urban technologies.</h1>
-							<p class="hero-text">Rapid technological change can be terrifying.</p>
-							<p class="hero-text">We work with government agencies, non-profits, and companies to make sense of emerging technologies and identify disruptions before they happen.</p>
-						</div>
 
-						<!-- Books Panel -->
-						<div class="content-panel">
-							<div class="header-row">
-								<h2 class="text-xl font-semibold">Books</h2>
-								<a href="/books/" class="view-all">View books »</a>
-							</div>
-							
-							<div class="grid grid-cols-2 gap-4 mt-4">
-								<!-- Ghost Road Book -->
-								<a href="/books/" class="book-card">
-									<img 
-										src={GhostRoadCover.src} 
-										alt="Ghost Road: Beyond the Driverless Car" 
-										class="book-cover"
-									/>
-								</a>
-								
-								<!-- Smart Cities Book -->
-								<a href="/books/" class="book-card">
-									<img 
-										src="/images/SmartCities_Cover.png" 
-										alt="Smart Cities: Big Data, Civic Hackers, and the Quest For A New Utopia" 
-										class="book-cover"
-									/>
+		<div class="relative z-10 hero-container">
+			<div class='container px-4 mx-auto max-w-6xl'>
+				<div class="hero-content">
+					<h1 class="hero-title">Anthony M. Townsend</h1>
+					<p class="hero-subtitle">
+						Author, urbanist, and researcher exploring the future of cities and technology
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Books Section -->
+	<div class="content-section bg-white dark:bg-zinc-900">
+		<div class='container px-4 mx-auto max-w-6xl'>
+			<h2 class="section-title text-center mb-12">Books</h2>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+				<!-- Ghost Road -->
+				<a href="/books/" class="book-card group">
+					<img
+						src={GhostRoadCover.src}
+						alt="Ghost Road: Beyond the Driverless Car"
+						class="book-cover"
+					/>
+					<div class="text-center mt-6">
+						<h3 class="text-2xl font-bold mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">
+							Ghost Road
+						</h3>
+						<p class="text-zinc-600 dark:text-zinc-400 mb-1">Beyond the Driverless Car</p>
+						<p class="text-sm text-zinc-500 dark:text-zinc-500">W.W. Norton & Co., 2020</p>
+					</div>
+				</a>
+
+				<!-- Smart Cities -->
+				<a href="/books/" class="book-card group">
+					<img
+						src="/images/SmartCities_Cover.png"
+						alt="Smart Cities: Big Data, Civic Hackers, and the Quest For A New Utopia"
+						class="book-cover"
+					/>
+					<div class="text-center mt-6">
+						<h3 class="text-2xl font-bold mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">
+							Smart Cities
+						</h3>
+						<p class="text-zinc-600 dark:text-zinc-400 mb-1">Big Data, Civic Hackers, and the Quest For A New Utopia</p>
+						<p class="text-sm text-zinc-500 dark:text-zinc-500">W.W. Norton & Co., 2013</p>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- About Section -->
+	<div class="content-section bg-zinc-50 dark:bg-zinc-800">
+		<div class='container px-4 mx-auto max-w-6xl'>
+			<div class="author-intro">
+				<div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
+					<div class="md:w-1/3">
+						<Image
+							src={Anthony}
+							alt="Anthony Townsend"
+							class="rounded-2xl shadow-xl w-full"
+						/>
+					</div>
+					<div class="md:w-2/3">
+						<h2 class="text-3xl font-bold mb-4">About Anthony</h2>
+						<div class="space-y-4 text-lg text-zinc-700 dark:text-zinc-300">
+							<p>
+								Dr. Anthony Townsend is President and Founder of <strong>Star City Group</strong>, where he works around the world with industry, government, and philanthropy on urban tech foresight, policy, and planning studies.
+							</p>
+							<p>
+								He is Senior Research Associate at Cornell Tech's Jacobs Urban Tech Hub, where he leads multi-disciplinary research collaborations connecting university researchers with stakeholders in industry, government, and civil society.
+							</p>
+							<p>
+								Anthony's work has influenced global debates on technology and urbanism, with particular focus on transforming traditional approaches to creating more connected, livable, efficient, and equitable cities.
+							</p>
+							<div class="pt-4">
+								<a href="/about/" class="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors">
+									Learn More
 								</a>
 							</div>
 						</div>
 					</div>
-					
-						<!-- Mobile layout: single column in specific order -->
-					<div class="grid grid-cols-1 gap-6 mb-6 sm:hidden">
-						<!-- Hero Panel -->
-						<div class="content-panel">
-							<h1 class="hero-title text-3xl">We make sense of urban technologies.</h1>
-							<p class="hero-text">Rapid technological change can be terrifying.</p>
-							<p class="hero-text">We work with government agencies, non-profits, and companies to make sense of emerging technologies and identify disruptions before they happen.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Recent Work Section -->
+	<div class="content-section bg-white dark:bg-zinc-900">
+		<div class='container px-4 mx-auto max-w-6xl'>
+			<div class="flex justify-between items-center mb-8">
+				<h2 class="section-title mb-0">Recent Work</h2>
+				<a href="/other-work/" class="text-blue-600 dark:text-blue-400 hover:underline font-semibold">
+					View all →
+				</a>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+				{recentWork.map((post: BlogPost) => (
+					<a
+						href={`/${post.slug}/`}
+						class="work-item p-6 rounded-lg border border-zinc-200 dark:border-zinc-700 hover:border-blue-400 dark:hover:border-blue-500 bg-white dark:bg-zinc-800"
+					>
+						<div class="text-sm text-zinc-500 dark:text-zinc-500 mb-2">
+							{new Date(post.data.pubDate).toLocaleDateString('en-US', {
+								year: 'numeric',
+								month: 'long',
+								day: 'numeric'
+							})}
 						</div>
-
-						<!-- Books Panel -->
-						<div class="content-panel">
-							<div class="header-row">
-								<h2 class="text-xl font-semibold">Books</h2>
-								<a href="/books/" class="view-all">View books »</a>
-							</div>
-							
-							<div class="grid grid-cols-2 gap-4 mt-4">
-								<!-- Ghost Road Book -->
-								<a href="/books/" class="book-card">
-									<img 
-										src={GhostRoadCover.src} 
-										alt="Ghost Road: Beyond the Driverless Car" 
-										class="book-cover"
-									/>
-								</a>
-								
-								<!-- Smart Cities Book -->
-								<a href="/books/" class="book-card">
-									<img 
-										src="/images/SmartCities_Cover.png" 
-										alt="Smart Cities: Big Data, Civic Hackers, and the Quest For A New Utopia" 
-										class="book-cover"
-									/>
-								</a>
-							</div>
-						</div>
-						
-						<!-- Recent Posts Panel -->
-						<div class="content-panel">
-							<div class="header-row">
-								<h2 class="text-xl font-semibold">Recent Posts</h2>
-								<a href="/" class="view-all">All posts »</a>
-							</div>
-
-							<div class="posts-list">
-								{allPosts.length > 0 ? (
-									<div class="space-y-4">
-										{allPosts.slice(0, 5).map((post: BlogPost) => (
-											<div class="flex items-baseline post-item">
-												<div class="date-label">
-													{new Date(post.data.pubDate).toLocaleDateString('en-US', {
-														year: 'numeric',
-														month: 'short', 
-														day: '2-digit'
-													})}
-												</div>
-												<a href={`/${post.slug}/`} class="post-title hover:underline">{post.data.title}</a>
-											</div>
-										))}
-									</div>
-								) : (
-									<div class="no-posts-message">
-										<p>No posts available at this time.</p>
-									</div>
-								)}
-							</div>
-						</div>
-						
-						<!-- Projects Panel -->
-						<div class="content-panel">
-							<div class="header-row">
-								<h2 class="text-xl font-semibold">Projects</h2>
-								<a href="/projects/" class="view-all">All projects »</a>
-							</div>
-
-							<p class="mb-4 text-sm text-gray-600">Explore some of our most impactful work. (Links open external sites).</p>
-
-							<div class="grid grid-cols-1 gap-4">
-								{top6Projects.slice(0, 2).map((project) => (
-									<a href={project.url} class="project-card group">
-										<div class="relative">
-											{project.image && (
-												<>
-													<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
-													<div class="absolute bottom-0 left-0 p-3 z-20">
-														<span class="inline-block px-3 py-1 text-xs rounded bg-white/80 text-black font-medium">{project.date}</span>
-													</div>
-													<img
-														src={project.image}
-														alt={project.title}
-														class="w-full h-[180px] object-cover"
-													/>
-												</>
-											)}
-										</div>
-										<div class="p-3 bg-white/50">
-											<h3 class="font-medium text-black group-hover:underline">{project.name}</h3>
-											<p class="text-sm text-gray-700 mt-1">{project.description}</p>
-										</div>
-									</a>
-								))}
-							</div>
-						</div>
-					</div>
-					
-					<!-- Second row - desktop and tablet only -->
-					<div class="grid grid-cols-1 md:grid-cols-2 gap-6 hidden sm:grid">
-						<!-- Recent Posts Panel -->
-						<div class="content-panel">
-							<div class="header-row">
-								<h2 class="text-xl font-semibold">Recent Posts</h2>
-								<a href="/" class="view-all">All posts »</a>
-							</div>
-
-							<div class="posts-list">
-								{allPosts.length > 0 ? (
-									<div class="space-y-4">
-										{allPosts.slice(0, 10).map((post: BlogPost) => (
-											<div class="flex items-baseline post-item">
-												<div class="date-label">
-													{new Date(post.data.pubDate).toLocaleDateString('en-US', {
-														year: 'numeric',
-														month: 'short', 
-														day: '2-digit'
-													})}
-												</div>
-												<a href={`/${post.slug}/`} class="post-title hover:underline">{post.data.title}</a>
-											</div>
-										))}
-									</div>
-								) : (
-									<div class="no-posts-message">
-										<p>No posts available at this time.</p>
-									</div>
-								)}
-							</div>
-						</div>
-
-						<!-- Projects Panel -->
-						<div class="content-panel">
-							<div class="header-row">
-								<h2 class="text-xl font-semibold">Projects</h2>
-								<a href="/projects/" class="view-all">All projects »</a>
-							</div>
-
-							<p class="mb-4 text-sm text-gray-600">Explore some of our most impactful work. (Links open external sites).</p>
-
-							<div class="grid grid-cols-2 gap-4">
-								{top6Projects.slice(0, 4).map((project) => (
-									<a href={project.url} class="project-card group">
-										<div class="relative">
-											{project.image && (
-												<>
-													<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
-													<div class="absolute bottom-0 left-0 p-3 z-20">
-														<span class="inline-block px-3 py-1 text-xs rounded bg-white/80 text-black font-medium">{project.date}</span>
-													</div>
-													<img
-														src={project.image}
-														alt={project.title}
-														class="w-full h-[140px] object-cover"
-													/>
-												</>
-											)}
-										</div>
-										<div class="p-3 bg-white/50">
-											<h3 class="font-medium text-black group-hover:underline text-sm">{project.name}</h3>
-											<p class="text-xs text-gray-700 mt-1 line-clamp-2">{project.description}</p>
-										</div>
-									</a>
-								))}
-							</div>
-						</div>
-					</div>
-				</section>
+						<h3 class="text-xl font-semibold mb-2 text-zinc-900 dark:text-zinc-100">
+							{post.data.title}
+						</h3>
+						{post.data.description && (
+							<p class="text-zinc-600 dark:text-zinc-400">
+								{post.data.description}
+							</p>
+						)}
+					</a>
+				))}
 			</div>
 		</div>
 	</div>

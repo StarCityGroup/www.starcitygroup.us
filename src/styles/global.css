@@ -1,9 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @layer base {
 	pre,
 	code {
 		font-size: 0.875rem;
+	}
+
+	body {
+		@apply antialiased;
+		font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+		text-rendering: optimizeLegibility;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		@apply font-bold;
+		letter-spacing: -0.01em;
+	}
+
+	p {
+		@apply leading-relaxed;
+	}
+}
+
+@layer utilities {
+	.text-balance {
+		text-wrap: balance;
 	}
 }
