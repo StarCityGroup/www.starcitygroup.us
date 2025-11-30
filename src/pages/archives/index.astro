@@ -1,0 +1,221 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import { projects } from '../projects/projects';
+
+type BlogPost = CollectionEntry<'blog'>;
+
+// Get all posts sorted by date
+const allPosts = (await getCollection('blog')).sort((a: BlogPost, b: BlogPost) =>
+  b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+// Separate projects and posts
+const projectsData = projects.map(project => ({
+  type: 'project' as const,
+  title: project.name,
+  date: project.date,
+  description: project.description || '',
+  url: project.demoLink,
+  image: project.image,
+  tags: project.tags || [],
+  sortDate: new Date(project.date.split(' ')[0]) // Extract year for sorting
+})).sort((a, b) => b.sortDate.valueOf() - a.sortDate.valueOf());
+
+const postsData = allPosts.map(post => ({
+  type: 'post' as const,
+  title: post.data.title,
+  date: post.data.pubDate.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }),
+  description: post.data.description || '',
+  url: `/${post.slug}/`,
+  image: post.data.heroImage,
+  tags: post.data.tags || [],
+  sortDate: post.data.pubDate
+})).sort((a, b) => b.sortDate.valueOf() - a.sortDate.valueOf());
+
+// Group projects by year
+const projectsByYear = projectsData.reduce((acc, item) => {
+  const year = item.sortDate.getFullYear();
+  if (!acc[year]) {
+    acc[year] = [];
+  }
+  acc[year].push(item);
+  return acc;
+}, {} as Record<number, typeof projectsData>);
+
+const projectYears = Object.keys(projectsByYear).sort((a, b) => Number(b) - Number(a));
+
+// Group posts by year
+const postsByYear = postsData.reduce((acc, item) => {
+  const year = item.sortDate.getFullYear();
+  if (!acc[year]) {
+    acc[year] = [];
+  }
+  acc[year].push(item);
+  return acc;
+}, {} as Record<number, typeof postsData>);
+
+const postYears = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
+---
+
+<BaseLayout
+  title="Archives"
+  description="Projects, publications, and writing by Anthony Townsend and Star City Group"
+>
+  <div class='container'>
+    <div class="mb-10">
+      <h1 class="text-4xl font-bold mb-4">Projects and Posts</h1>
+      <p class="text-zinc-700 dark:text-zinc-300 text-lg mb-6">
+        A chronological archive of projects, reports, essays, and other writing.
+      </p>
+    </div>
+
+    <style>
+      .work-card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .work-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+      }
+      .dark .work-card:hover {
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+      }
+      .work-thumbnail {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 0.5rem 0.5rem 0 0;
+      }
+      .work-badge {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+        border-radius: 9999px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .work-badge.project {
+        background-color: rgba(59, 130, 246, 0.1);
+        color: rgb(59, 130, 246);
+      }
+      .dark .work-badge.project {
+        background-color: rgba(59, 130, 246, 0.2);
+        color: rgb(147, 197, 253);
+      }
+      .work-badge.post {
+        background-color: rgba(168, 85, 247, 0.1);
+        color: rgb(168, 85, 247);
+      }
+      .dark .work-badge.post {
+        background-color: rgba(168, 85, 247, 0.2);
+        color: rgb(216, 180, 254);
+      }
+      .section-divider {
+        margin: 4rem 0;
+        border-top: 2px solid;
+        border-color: rgb(228, 228, 231);
+      }
+      .dark .section-divider {
+        border-color: rgb(63, 63, 70);
+      }
+    </style>
+
+    <!-- Projects Section -->
+    <div class="mb-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projectsData.map(item => (
+          <a
+            href={item.url}
+            class="work-card rounded-lg bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 overflow-hidden"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {item.image && (
+              <img
+                src={item.image}
+                alt={item.title}
+                class="work-thumbnail"
+              />
+            )}
+            <div class="p-4 flex-1 flex flex-col">
+              <h4 class="text-lg font-semibold text-zinc-900 dark:text-zinc-100 line-clamp-2 mb-2">
+                {item.title}
+              </h4>
+              <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-3">{item.date}</p>
+              {item.tags.length > 0 && (
+                <div class="flex flex-wrap gap-2 mt-auto">
+                  {item.tags.slice(0, 3).map(tag => (
+                    <span class="text-xs px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-700 text-zinc-600 dark:text-zinc-400">
+                      {tag}
+                    </span>
+                  ))}
+                  {item.tags.length > 3 && (
+                    <span class="text-xs px-2 py-1 text-zinc-500 dark:text-zinc-500">
+                      +{item.tags.length - 3}
+                    </span>
+                  )}
+                </div>
+              )}
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- Posts Section -->
+    <div class="mb-16">
+      <h2 class="text-3xl font-bold mb-8 text-zinc-900 dark:text-zinc-100">Posts</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead>
+            <tr class="border-b-2 border-zinc-200 dark:border-zinc-700">
+              <th class="text-left py-3 px-4 font-semibold text-zinc-900 dark:text-zinc-100">Title</th>
+              <th class="text-left py-3 px-4 font-semibold text-zinc-900 dark:text-zinc-100">Date</th>
+              <th class="text-left py-3 px-4 font-semibold text-zinc-900 dark:text-zinc-100">Tags</th>
+            </tr>
+          </thead>
+          <tbody>
+            {postsData.map(item => (
+              <tr class="border-b border-zinc-200 dark:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors">
+                <td class="py-3 px-4">
+                  <a href={item.url} class="text-zinc-900 dark:text-zinc-100 hover:text-blue-600 dark:hover:text-blue-400 font-medium">
+                    {item.title}
+                  </a>
+                </td>
+                <td class="py-3 px-4 text-zinc-600 dark:text-zinc-400 whitespace-nowrap">
+                  {item.date}
+                </td>
+                <td class="py-3 px-4">
+                  <div class="flex flex-wrap gap-2">
+                    {item.tags.slice(0, 3).map(tag => (
+                      <span class="text-xs px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-700 text-zinc-600 dark:text-zinc-400">
+                        {tag}
+                      </span>
+                    ))}
+                    {item.tags.length > 3 && (
+                      <span class="text-xs px-2 py-1 text-zinc-500 dark:text-zinc-500">
+                        +{item.tags.length - 3}
+                      </span>
+                    )}
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

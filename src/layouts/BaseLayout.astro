@@ -20,7 +20,7 @@ const isHome = path === '/' || path === '/index.html' || isHomePage;
 	<body
 		class={`bg-white dark:bg-zinc-900 dark:text-zinc-100 ${isHome ? 'home-body' : 'pt-16 sm:pt-0'}`}
 	>
-		<Header/>
+		<Header isHomePage={isHome}/>
 		<div class={`min-h-[calc(100vh-160px)] ${isHome ? '' : 'py-8'}`}>
 			<slot />
 		</div>

@@ -9,12 +9,9 @@ import Banner from '@src/assets/img/lisheng-chang-M2524ncJQ40-unsplash.jpg';
 import Anthony from '@src/assets/img/anthonytownsend.png';
 import GhostRoadCover from '/public/images/ghostroad-cover.png';
 import SmartCitiesCover from '/public/images/smartcities-cover-full.jpg';
+import Prose from '../components/Prose.astro';
 
 type BlogPost = CollectionEntry<'blog'>;
-
-// Get recent posts
-const allPosts = (await getCollection('blog')).sort((a: BlogPost, b: BlogPost) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-const recentWork = allPosts.slice(0, 6);
 ---
 
 <BaseLayout title={SITE_TITLE + ' - ' + SITE_TAGLINE} description={SITE_DESCRIPTION} isHomePage={true}>
@@ -24,36 +21,51 @@ const recentWork = allPosts.slice(0, 6);
 		}
 
 		.hero-container {
-			min-height: 85vh;
+			min-height: 100vh;
 			display: flex;
-			align-items: center;
+			align-items: flex-start;
+			padding-top: 8rem;
 		}
 
 		.hero-content {
-			max-width: 900px;
+			max-width: 1000px;
 		}
 
 		.hero-title {
-			font-size: 3.5rem;
-			font-weight: 800;
-			line-height: 1.1;
-			margin-bottom: 1.5rem;
+			font-size: 5rem;
+			font-weight: 900;
+			line-height: 0.95;
+			margin-bottom: 2rem;
 			color: white;
-			text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+			text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+			letter-spacing: -0.02em;
 		}
 
 		@media (min-width: 768px) {
 			.hero-title {
-				font-size: 5rem;
+				font-size: 7rem;
+			}
+		}
+
+		@media (min-width: 1024px) {
+			.hero-title {
+				font-size: 8.5rem;
 			}
 		}
 
 		.hero-subtitle {
-			font-size: 1.5rem;
-			line-height: 1.6;
+			font-size: 1.75rem;
+			line-height: 1.5;
 			color: rgba(255, 255, 255, 0.95);
-			font-weight: 400;
-			text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+			font-weight: 300;
+			text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+			max-width: 700px;
+		}
+
+		@media (min-width: 768px) {
+			.hero-subtitle {
+				font-size: 2rem;
+			}
 		}
 
 		.section-title {
@@ -101,11 +113,14 @@ const recentWork = allPosts.slice(0, 6);
 			.content-section {
 				padding: 3rem 0;
 			}
+			.hero-container {
+				padding-top: 6rem;
+			}
 			.hero-title {
-				font-size: 2.5rem;
+				font-size: 3.5rem;
 			}
 			.hero-subtitle {
-				font-size: 1.25rem;
+				font-size: 1.4rem;
 			}
 			.section-title {
 				font-size: 2rem;
@@ -141,6 +156,18 @@ const recentWork = allPosts.slice(0, 6);
 					<p class="hero-subtitle">
 						Author, urbanist, and researcher exploring the future of cities and technology
 					</p>
+					<div class="flex gap-4 mt-6">
+						<a href="https://www.linkedin.com/in/anthonytownsendnyc/" target="_blank" rel="noopener noreferrer" class="p-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-all hover:scale-110" aria-label="LinkedIn">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" stroke="none">
+								<path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 00.1.47V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
+							</svg>
+						</a>
+						<a href="https://github.com/anthonymobile" target="_blank" rel="noopener noreferrer" class="p-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-all hover:scale-110" aria-label="GitHub">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" stroke="none">
+								<path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.841-2.337 4.687-4.565 4.934.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.16 22 16.416 22 12c0-5.523-4.477-10-10-10z"></path>
+							</svg>
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -151,38 +178,62 @@ const recentWork = allPosts.slice(0, 6);
 		<div class='container px-4 mx-auto max-w-6xl'>
 			<h2 class="section-title text-center mb-12">Books</h2>
 
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-				<!-- Ghost Road -->
-				<a href="/books/" class="book-card group">
-					<img
-						src={GhostRoadCover.src}
-						alt="Ghost Road: Beyond the Driverless Car"
-						class="book-cover"
-					/>
-					<div class="text-center mt-6">
-						<h3 class="text-2xl font-bold mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">
-							Ghost Road
-						</h3>
-						<p class="text-zinc-600 dark:text-zinc-400 mb-1">Beyond the Driverless Car</p>
-						<p class="text-sm text-zinc-500 dark:text-zinc-500">W.W. Norton & Co., 2020</p>
+			<!-- Ghost Road -->
+			<div class="mb-16">
+				<div class="md:flex gap-8 items-start">
+					<div class="md:w-1/3 mb-6 md:mb-0">
+						<Image
+							src={GhostRoadCover}
+							alt="Ghost Road book cover"
+							class="rounded-lg shadow-lg w-full"
+						/>
 					</div>
-				</a>
 
-				<!-- Smart Cities -->
-				<a href="/books/" class="book-card group">
-					<img
-						src="/images/SmartCities_Cover.png"
-						alt="Smart Cities: Big Data, Civic Hackers, and the Quest For A New Utopia"
-						class="book-cover"
-					/>
-					<div class="text-center mt-6">
-						<h3 class="text-2xl font-bold mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">
-							Smart Cities
-						</h3>
-						<p class="text-zinc-600 dark:text-zinc-400 mb-1">Big Data, Civic Hackers, and the Quest For A New Utopia</p>
-						<p class="text-sm text-zinc-500 dark:text-zinc-500">W.W. Norton & Co., 2013</p>
+					<div class="md:w-2/3">
+						<Prose>
+							<h3 class="text-3xl font-bold mb-4">Ghost Road: Beyond the Driverless Car</h3>
+
+							<p class="italic text-zinc-700 dark:text-zinc-300 mb-4">"Ghost Road offers up an exhilarating picture of the ways in which autonomous vehicles might transform our lives for the better, saving time and lines, reshaping cities, and helping combat climate change." </p>
+							<p class="text-right italic text-zinc-700 dark:text-zinc-300 mb-4">— James Surowiecki, Strategy + Business, "Best Business Books of 2020"</p>
+
+							<p>For decades we have tried to build a car that will drive itself. But the driverless car is a red herring. When self-driving technology infects buses, bikes, delivery vans, and even buildings, a wild, woollier, future awaits. Ghost Road explains where we might be headed together in driverless vehicles, and the choices we must make as societies and individuals to shape that future.</p>
+
+							<h4 class="text-xl font-bold mt-4">How to Buy</h4>
+
+							<p>Patronize independent booksellers worldwide on <a href="https://bookshop.org/books/ghost-road-beyond-the-driverless-car-9781684579341/9781324001522" target="_blank">Bookshop.org</a>. Check <a href="https://www.wordbookstores.com/book/9781324001522" target="_blank">WORD Bookstores</a> for local delivery or pickup in Brooklyn and Jersey City. <a href="https://www.amazon.com/Ghost-Road-Anthony-M-Townsend/dp/1324001526" target="_blank">Amazon</a> has hardcover, Kindle, and audiobook editions.</p>
+
+							<p>For bulk book orders, I recommend <a href="https://www.porchlightbooks.com/products/ghost-road-anthony-m-townsend-9781324001522?_pos=1&_sid=fc547e3ca&_ss=r" target="_blank">Porchlight</a> (up to 250 copies) or <a href="https://wwnorton.com/books/9781324001522" target="_blank">W.W. Norton</a> (over 250 copies).</p>
+						</Prose>
 					</div>
-				</a>
+				</div>
+			</div>
+
+			<!-- Smart Cities -->
+			<div class="mb-16">
+				<div class="md:flex gap-8 items-start">
+					<div class="md:w-1/3 mb-6 md:mb-0">
+						<Image
+							src={SmartCitiesCover}
+							alt="Smart Cities book cover"
+							class="rounded-lg shadow-lg w-full"
+						/>
+					</div>
+
+					<div class="md:w-2/3">
+						<Prose>
+							<h3 class="text-3xl font-bold mb-4">Smart Cities: Big Data, Civic Hackers, and the Quest For A New Utopia</h3>
+
+							<p class="italic text-zinc-700 dark:text-zinc-300 mb-4">"[A] timely and necessary guide to this age of the Franken-city." </p>
+							<p class="text-right italic text-zinc-700 dark:text-zinc-300 mb-4"> — Daniel Brook, The New York Times Book Review</p>
+
+							<p>From Beijing to Boston, cities are deploying smart technology—sensors embedded in streets and subways, Wi-Fi broadcast airports and green spaces—to address the basic challenges faced by massive, interconnected metropolitan centers. <em>Smart Cities</em> documents this emerging futuristic landscape while considering the motivations, aspirations, and shortcomings of the key actors—entrepreneurs, mayors, philanthropists, and software developers—at work in shaping the new urban frontier.</p>
+
+							<h4 class="text-xl font-bold mt-4">How to Buy</h4>
+
+							<p>Patronize independent booksellers worldwide on <a href="https://bookshop.org/books/smart-cities-big-data-civic-hackers-and-the-quest-for-a-new-utopia/9780393349788" target="_blank">Bookshop.org</a>. Check <a href="https://www.wordbookstores.com/book/9780393349788" target="_blank">WORD Bookstores</a> for local delivery or pickup in Brooklyn and Jersey City. <a href="https://www.amazon.com/dp/0393349780/ref=cm_sw_su_dp" target="_blank">Amazon</a> has the book in stock and is delivering.</p>
+						</Prose>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -203,19 +254,11 @@ const recentWork = allPosts.slice(0, 6);
 						<h2 class="text-3xl font-bold mb-4">About Anthony</h2>
 						<div class="space-y-4 text-lg text-zinc-700 dark:text-zinc-300">
 							<p>
-								Dr. Anthony Townsend is President and Founder of <strong>Star City Group</strong>, where he works around the world with industry, government, and philanthropy on urban tech foresight, policy, and planning studies.
+								Dr. Anthony Townsend is Senior Research Associate at Cornell Tech's Jacobs Urban Tech Hub, where he leads multi-disciplinary research collaborations connecting university researchers with stakeholders in industry, government, and civil society.
 							</p>
 							<p>
-								He is Senior Research Associate at Cornell Tech's Jacobs Urban Tech Hub, where he leads multi-disciplinary research collaborations connecting university researchers with stakeholders in industry, government, and civil society.
+								Over the last 25 years, Anthony's work has influenced global debates on technology and urbanism, with particular focus on transforming traditional approaches to creating more connected, livable, efficient, and equitable cities.
 							</p>
-							<p>
-								Anthony's work has influenced global debates on technology and urbanism, with particular focus on transforming traditional approaches to creating more connected, livable, efficient, and equitable cities.
-							</p>
-							<div class="pt-4">
-								<a href="/about/" class="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors">
-									Learn More
-								</a>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -223,40 +266,12 @@ const recentWork = allPosts.slice(0, 6);
 		</div>
 	</div>
 
-	<!-- Recent Work Section -->
-	<div class="content-section bg-white dark:bg-zinc-900">
-		<div class='container px-4 mx-auto max-w-6xl'>
-			<div class="flex justify-between items-center mb-8">
-				<h2 class="section-title mb-0">Recent Work</h2>
-				<a href="/other-work/" class="text-blue-600 dark:text-blue-400 hover:underline font-semibold">
-					View all →
-				</a>
-			</div>
-
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-				{recentWork.map((post: BlogPost) => (
-					<a
-						href={`/${post.slug}/`}
-						class="work-item p-6 rounded-lg border border-zinc-200 dark:border-zinc-700 hover:border-blue-400 dark:hover:border-blue-500 bg-white dark:bg-zinc-800"
-					>
-						<div class="text-sm text-zinc-500 dark:text-zinc-500 mb-2">
-							{new Date(post.data.pubDate).toLocaleDateString('en-US', {
-								year: 'numeric',
-								month: 'long',
-								day: 'numeric'
-							})}
-						</div>
-						<h3 class="text-xl font-semibold mb-2 text-zinc-900 dark:text-zinc-100">
-							{post.data.title}
-						</h3>
-						{post.data.description && (
-							<p class="text-zinc-600 dark:text-zinc-400">
-								{post.data.description}
-							</p>
-						)}
-					</a>
-				))}
-			</div>
+	<!-- Footer with Archives Link -->
+	<div class="content-section bg-white dark:bg-zinc-900" style="padding-bottom: 8rem;">
+		<div class='container px-4 mx-auto max-w-6xl text-center'>
+			<a href="/archives/" class="inline-block px-8 py-4 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-900 dark:text-zinc-100 font-semibold rounded-lg transition-colors text-lg">
+				Looking for Star City Group? →
+			</a>
 		</div>
 	</div>
 </BaseLayout>

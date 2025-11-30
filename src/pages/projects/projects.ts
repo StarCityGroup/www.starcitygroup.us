@@ -66,7 +66,7 @@ export const projects: Project[] = [
   },
   {
     name: 'Big Urban Data',
-    date: "2018-2019",
+    date: "2019",
     image:'/images/casa-london.png',
     description: 'A maturity model for Latin American cities to assess data initiatives.',
     demoLink: 'https://publications.iadb.org/publications/english/document/Big_Urban_Data_A_Strategic_Guide_for_Cities.pdf',
@@ -75,7 +75,7 @@ export const projects: Project[] = [
 
   {
     name: 'How Cities Make Software Together',
-    date: "2022-2023",
+    date: "2023",
     image: '/images/victor-rodriguez-IiLFMkqiFrM-unsplash-768x510.jpg',
     description: 'Comparative study of 6 multi-city open source collaborations.',
     demoLink: 'https://sites.coecis.cornell.edu/urbantech/files/2023/04/How-Cities-Make-Software-Together.pdf',
@@ -87,7 +87,7 @@ export const projects: Project[] = [
 
   {
     name: 'Blue Economy Innovation District',
-    date: "2019-2020",
+    date: "2019",
     description: 'Narrative development for an ocean tech cluster in Gulfport, Mississippi.',
     image: '/images/spencer-watson-ioy3bN5Irew-unsplash.jpg',
     demoLink: '/pdf/SA-Gulfport-BEID-20200124.pdf',
