@@ -1,17 +1,11 @@
 ---
 import { SITE_TITLE, SITE_TAGLINE, SITE_DESCRIPTION } from '../consts';
-import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
-import type { CollectionEntry } from 'astro:content';
-import { projects } from './projects/projects';
 import Banner from '@src/assets/img/lisheng-chang-M2524ncJQ40-unsplash.jpg';
 import Anthony from '@src/assets/img/anthonytownsend.png';
 import GhostRoadCover from '/public/images/ghostroad-cover.png';
 import SmartCitiesCover from '/public/images/smartcities-cover-full.jpg';
-import Prose from '../components/Prose.astro';
-
-type BlogPost = CollectionEntry<'blog'>;
 ---
 
 <BaseLayout title={SITE_TITLE + ' - ' + SITE_TAGLINE} description={SITE_DESCRIPTION} isHomePage={true}>
@@ -79,6 +73,23 @@ type BlogPost = CollectionEntry<'blog'>;
 			color: #fff;
 		}
 
+		.section-heading {
+			text-align: center;
+		}
+
+		.section-heading .eyebrow {
+			text-transform: uppercase;
+			letter-spacing: 0.2em;
+			font-size: 0.85rem;
+			font-weight: 600;
+			color: #6366f1;
+			margin-bottom: 1rem;
+		}
+
+		.dark .section-heading .eyebrow {
+			color: #a5b4fc;
+		}
+
 		.book-card {
 			transition: transform 0.3s ease, box-shadow 0.3s ease;
 			border-radius: 12px;
@@ -109,6 +120,286 @@ type BlogPost = CollectionEntry<'blog'>;
 			padding: 5rem 0;
 		}
 
+		.books-section,
+		.bio-section {
+			min-height: 100vh;
+			padding: clamp(4rem, 8vw, 7rem) 0;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.books-section {
+			background: radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.15), transparent 55%), #f8fafc;
+		}
+
+		.dark .books-section {
+			background: radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.3), transparent 55%), #020617;
+		}
+
+		.books-section-glow,
+		.bio-section-glow {
+			position: absolute;
+			top: -20%;
+			left: 50%;
+			width: 800px;
+			height: 800px;
+			border-radius: 999px;
+			filter: blur(120px);
+			opacity: 0.3;
+			transform: translateX(-50%);
+			pointer-events: none;
+		}
+
+		.books-section-glow {
+			background: rgba(14, 165, 233, 0.6);
+		}
+
+		.bio-section-glow {
+			background: rgba(236, 72, 153, 0.4);
+			bottom: -20%;
+			top: auto;
+		}
+
+		.books-grid {
+			display: flex;
+			flex-direction: column;
+			gap: clamp(2rem, 4vw, 3.5rem);
+		}
+
+		.book-panel {
+			border-radius: 32px;
+			border: 1px solid rgba(15, 23, 42, 0.08);
+			padding: clamp(2rem, 4vw, 3rem);
+			background: rgba(255, 255, 255, 0.9);
+			box-shadow: 0 25px 80px rgba(15, 23, 42, 0.15);
+			display: grid;
+			gap: 2rem;
+			align-items: center;
+		}
+
+		.dark .book-panel {
+			background: rgba(15, 23, 42, 0.85);
+			border-color: rgba(255, 255, 255, 0.05);
+			box-shadow: 0 35px 80px rgba(0, 0, 0, 0.6);
+		}
+
+		@media (min-width: 768px) {
+			.book-panel {
+				grid-template-columns: 1fr 1.25fr;
+			}
+		}
+
+		.book-cover-shell {
+			border-radius: 28px;
+			padding: 1.5rem;
+			background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(236, 72, 153, 0.12));
+		}
+
+		.dark .book-cover-shell {
+			background: linear-gradient(135deg, rgba(59, 130, 246, 0.25), rgba(236, 72, 153, 0.25));
+		}
+
+		.book-cover-image {
+			border-radius: 18px;
+			box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
+		}
+
+		.book-pill {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.35rem;
+			font-size: 0.85rem;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
+			background: rgba(15, 23, 42, 0.06);
+			color: #0f172a;
+			padding: 0.4rem 0.85rem;
+			border-radius: 999px;
+		}
+
+		.dark .book-pill {
+			background: rgba(248, 250, 252, 0.15);
+			color: #f8fafc;
+		}
+
+		.book-title {
+			font-size: clamp(1.75rem, 2.5vw, 2.75rem);
+			font-weight: 800;
+			margin: 1rem 0;
+			color: inherit;
+		}
+
+		.book-quote {
+			font-style: italic;
+			color: rgba(15, 23, 42, 0.8);
+		}
+
+		.book-quote-source {
+			font-size: 0.9rem;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
+			margin-bottom: 1.5rem;
+			color: rgba(15, 23, 42, 0.6);
+		}
+
+		.dark .book-quote,
+		.dark .book-quote-source {
+			color: rgba(248, 250, 252, 0.8);
+		}
+
+		.book-summary {
+			font-size: 1.05rem;
+			line-height: 1.7;
+			color: rgba(15, 23, 42, 0.9);
+			margin-bottom: 1.5rem;
+		}
+
+		.dark .book-summary {
+			color: rgba(248, 250, 252, 0.85);
+		}
+
+		.book-links {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.85rem;
+		}
+
+		.book-link {
+			padding: 0.85rem 1.5rem;
+			border-radius: 999px;
+			font-weight: 600;
+			transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+			border: 1px solid transparent;
+		}
+
+		.book-link.primary {
+			background: #0f172a;
+			color: #f8fafc;
+		}
+
+		.dark .book-link.primary {
+			background: #f8fafc;
+			color: #0f172a;
+		}
+
+		.book-link.secondary {
+			border-color: rgba(15, 23, 42, 0.15);
+			color: #0f172a;
+			background: transparent;
+		}
+
+		.dark .book-link.secondary {
+			border-color: rgba(248, 250, 252, 0.4);
+			color: #f8fafc;
+		}
+
+		.book-link:hover {
+			transform: translateY(-2px);
+		}
+
+		.bio-section {
+			background: radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.12), transparent 55%), #faf5ff;
+		}
+
+		.dark .bio-section {
+			background: radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.25), transparent 55%), #0b1120;
+		}
+
+		.bio-shell {
+			border-radius: 40px;
+			border: 1px solid rgba(15, 23, 42, 0.08);
+			background: rgba(255, 255, 255, 0.9);
+			box-shadow: 0 35px 90px rgba(15, 23, 42, 0.12);
+			padding: clamp(2rem, 5vw, 4rem);
+			display: grid;
+			gap: 2.5rem;
+		}
+
+		.dark .bio-shell {
+			background: rgba(2, 6, 23, 0.9);
+			border-color: rgba(255, 255, 255, 0.06);
+			box-shadow: 0 45px 100px rgba(0, 0, 0, 0.6);
+		}
+
+		@media (min-width: 900px) {
+			.bio-shell {
+				grid-template-columns: 1fr 1.2fr;
+				align-items: center;
+			}
+		}
+
+		.bio-portrait-frame {
+			position: relative;
+			border-radius: 32px;
+			padding: 1.5rem;
+			background: linear-gradient(135deg, rgba(14, 165, 233, 0.15), rgba(236, 72, 153, 0.25));
+		}
+
+		.bio-content .eyebrow {
+			text-transform: uppercase;
+			letter-spacing: 0.2em;
+			font-size: 0.9rem;
+			font-weight: 600;
+			color: #ec4899;
+			margin-bottom: 1rem;
+		}
+
+		.dark .bio-content .eyebrow {
+			color: #f472b6;
+		}
+
+		.bio-content h2 {
+			font-size: clamp(2rem, 3vw, 3.5rem);
+			font-weight: 800;
+			margin-bottom: 1.5rem;
+		}
+
+		.bio-copy {
+			font-size: 1.1rem;
+			line-height: 1.75;
+			color: rgba(15, 23, 42, 0.85);
+			margin-bottom: 1rem;
+		}
+
+		.dark .bio-copy {
+			color: rgba(248, 250, 252, 0.8);
+		}
+
+		.bio-cta {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1rem;
+		}
+
+		.bio-cta a {
+			padding: 0.95rem 1.75rem;
+			border-radius: 999px;
+			font-weight: 600;
+			border: 1px solid transparent;
+		}
+
+		.bio-cta a.primary {
+			background: #0f172a;
+			color: #fff;
+		}
+
+		.dark .bio-cta a.primary {
+			background: #f8fafc;
+			color: #0f172a;
+		}
+
+		.bio-cta a.secondary {
+			border-color: rgba(15, 23, 42, 0.15);
+			color: #0f172a;
+		}
+
+		.dark .bio-cta a.secondary {
+			border-color: rgba(248, 250, 252, 0.4);
+			color: #f8fafc;
+		}
+
 		@media (max-width: 768px) {
 			.content-section {
 				padding: 3rem 0;
@@ -127,15 +418,6 @@ type BlogPost = CollectionEntry<'blog'>;
 			}
 		}
 
-		.author-intro {
-			background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
-			border-radius: 16px;
-			padding: 3rem;
-		}
-
-		.dark .author-intro {
-			background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
-		}
 	</style>
 
 	<!-- Hero Section -->
@@ -174,97 +456,101 @@ type BlogPost = CollectionEntry<'blog'>;
 	</div>
 
 	<!-- Books Section -->
-	<div class="content-section bg-white dark:bg-zinc-900">
-		<div class='container px-4 mx-auto max-w-6xl'>
-			<h2 class="section-title text-center mb-12">Books</h2>
+	<section class="content-section books-section relative overflow-hidden">
+		<div class="books-section-glow" aria-hidden="true"></div>
+		<div class='container px-4 mx-auto max-w-6xl relative z-10'>
+			<div class="section-heading max-w-3xl mx-auto mb-16">
+				<p class="eyebrow">Books</p>
+				<h2 class="section-title mb-4">Ideas meant to be dog-eared</h2>
+				<p class="text-lg text-zinc-700 dark:text-zinc-300">
+					Longform investigations at the intersection of urbanism, emerging technology, and policy—written for readers who want to understand what comes next for cities.
+				</p>
+			</div>
 
-			<!-- Ghost Road -->
-			<div class="mb-16">
-				<div class="md:flex gap-8 items-start">
-					<div class="md:w-1/3 mb-6 md:mb-0">
+			<div class="books-grid">
+				<article class="book-panel">
+					<div class="book-cover-shell">
 						<Image
 							src={GhostRoadCover}
 							alt="Ghost Road book cover"
-							class="rounded-lg shadow-lg w-full"
+							class="book-cover-image w-full"
 						/>
 					</div>
-
-					<div class="md:w-2/3">
-						<Prose>
-							<h3 class="text-3xl font-bold mb-4">Ghost Road: Beyond the Driverless Car</h3>
-
-							<p class="italic text-zinc-700 dark:text-zinc-300 mb-4">"Ghost Road offers up an exhilarating picture of the ways in which autonomous vehicles might transform our lives for the better, saving time and lines, reshaping cities, and helping combat climate change." </p>
-							<p class="text-right italic text-zinc-700 dark:text-zinc-300 mb-4">— James Surowiecki, Strategy + Business, "Best Business Books of 2020"</p>
-
-							<p>For decades we have tried to build a car that will drive itself. But the driverless car is a red herring. When self-driving technology infects buses, bikes, delivery vans, and even buildings, a wild, woollier, future awaits. Ghost Road explains where we might be headed together in driverless vehicles, and the choices we must make as societies and individuals to shape that future.</p>
-
-							<h4 class="text-xl font-bold mt-4">How to Buy</h4>
-
-							<p>Patronize independent booksellers worldwide on <a href="https://bookshop.org/books/ghost-road-beyond-the-driverless-car-9781684579341/9781324001522" target="_blank">Bookshop.org</a>. Check <a href="https://www.wordbookstores.com/book/9781324001522" target="_blank">WORD Bookstores</a> for local delivery or pickup in Brooklyn and Jersey City. <a href="https://www.amazon.com/Ghost-Road-Anthony-M-Townsend/dp/1324001526" target="_blank">Amazon</a> has hardcover, Kindle, and audiobook editions.</p>
-
-							<p>For bulk book orders, I recommend <a href="https://www.porchlightbooks.com/products/ghost-road-anthony-m-townsend-9781324001522?_pos=1&_sid=fc547e3ca&_ss=r" target="_blank">Porchlight</a> (up to 250 copies) or <a href="https://wwnorton.com/books/9781324001522" target="_blank">W.W. Norton</a> (over 250 copies).</p>
-						</Prose>
+					<div>
+						<p class="book-pill">Future Mobility</p>
+						<h3 class="book-title">Ghost Road: Beyond the Driverless Car</h3>
+						<p class="book-quote">"Ghost Road offers up an exhilarating picture of the ways in which autonomous vehicles might transform our lives for the better."</p>
+						<p class="book-quote-source">— James Surowiecki, Strategy + Business</p>
+						<p class="book-summary">
+							When autonomy escapes the car and infects transit networks, delivery fleets, and buildings themselves, the map of daily life shifts dramatically. Ghost Road lays out the design choices and policy trade-offs we face as cities navigate that transition.
+						</p>
+						<div class="book-links">
+							<a href="https://bookshop.org/books/ghost-road-beyond-the-driverless-car-9781684579341/9781324001522" target="_blank" rel="noopener noreferrer" class="book-link primary">Bookshop.org</a>
+							<a href="https://www.wordbookstores.com/book/9781324001522" target="_blank" rel="noopener noreferrer" class="book-link secondary">WORD Bookstores</a>
+							<a href="https://www.amazon.com/Ghost-Road-Anthony-M-Townsend/dp/1324001526" target="_blank" rel="noopener noreferrer" class="book-link secondary">Amazon</a>
+							<a href="https://www.porchlightbooks.com/products/ghost-road-anthony-m-townsend-9781324001522?_pos=1&_sid=fc547e3ca&_ss=r" target="_blank" rel="noopener noreferrer" class="book-link secondary">Bulk Orders</a>
+						</div>
 					</div>
-				</div>
-			</div>
+				</article>
 
-			<!-- Smart Cities -->
-			<div class="mb-16">
-				<div class="md:flex gap-8 items-start">
-					<div class="md:w-1/3 mb-6 md:mb-0">
+				<article class="book-panel">
+					<div class="book-cover-shell">
 						<Image
 							src={SmartCitiesCover}
 							alt="Smart Cities book cover"
-							class="rounded-lg shadow-lg w-full"
+							class="book-cover-image w-full"
 						/>
 					</div>
-
-					<div class="md:w-2/3">
-						<Prose>
-							<h3 class="text-3xl font-bold mb-4">Smart Cities: Big Data, Civic Hackers, and the Quest For A New Utopia</h3>
-
-							<p class="italic text-zinc-700 dark:text-zinc-300 mb-4">"[A] timely and necessary guide to this age of the Franken-city." </p>
-							<p class="text-right italic text-zinc-700 dark:text-zinc-300 mb-4"> — Daniel Brook, The New York Times Book Review</p>
-
-							<p>From Beijing to Boston, cities are deploying smart technology—sensors embedded in streets and subways, Wi-Fi broadcast airports and green spaces—to address the basic challenges faced by massive, interconnected metropolitan centers. <em>Smart Cities</em> documents this emerging futuristic landscape while considering the motivations, aspirations, and shortcomings of the key actors—entrepreneurs, mayors, philanthropists, and software developers—at work in shaping the new urban frontier.</p>
-
-							<h4 class="text-xl font-bold mt-4">How to Buy</h4>
-
-							<p>Patronize independent booksellers worldwide on <a href="https://bookshop.org/books/smart-cities-big-data-civic-hackers-and-the-quest-for-a-new-utopia/9780393349788" target="_blank">Bookshop.org</a>. Check <a href="https://www.wordbookstores.com/book/9780393349788" target="_blank">WORD Bookstores</a> for local delivery or pickup in Brooklyn and Jersey City. <a href="https://www.amazon.com/dp/0393349780/ref=cm_sw_su_dp" target="_blank">Amazon</a> has the book in stock and is delivering.</p>
-						</Prose>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- About Section -->
-	<div class="content-section bg-zinc-50 dark:bg-zinc-800">
-		<div class='container px-4 mx-auto max-w-6xl'>
-			<div class="author-intro">
-				<div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
-					<div class="md:w-1/3">
-						<Image
-							src={Anthony}
-							alt="Anthony Townsend"
-							class="rounded-2xl shadow-xl w-full"
-						/>
-					</div>
-					<div class="md:w-2/3">
-						<h2 class="text-3xl font-bold mb-4">About Anthony</h2>
-						<div class="space-y-4 text-lg text-zinc-700 dark:text-zinc-300">
-							<p>
-								Dr. Anthony Townsend is Senior Research Associate at Cornell Tech's Jacobs Urban Tech Hub, where he leads multi-disciplinary research collaborations connecting university researchers with stakeholders in industry, government, and civil society.
-							</p>
-							<p>
-								Over the last 25 years, Anthony's work has influenced global debates on technology and urbanism, with particular focus on transforming traditional approaches to creating more connected, livable, efficient, and equitable cities.
-							</p>
+					<div>
+						<p class="book-pill">Urban Futures</p>
+						<h3 class="book-title">Smart Cities: Big Data, Civic Hackers, and the Quest for a New Utopia</h3>
+						<p class="book-quote">"A timely and necessary guide to this age of the Franken-city."</p>
+						<p class="book-quote-source">— Daniel Brook, The New York Times Book Review</p>
+						<p class="book-summary">
+							A global tour of how technologists, public servants, and civic hackers are wiring the metropolis—and what happens when code collides with people. Smart Cities unpacks who benefits, who is left behind, and how we can design urban tech for everyone.
+						</p>
+						<div class="book-links">
+							<a href="https://bookshop.org/books/smart-cities-big-data-civic-hackers-and-the-quest-for-a-new-utopia/9780393349788" target="_blank" rel="noopener noreferrer" class="book-link primary">Bookshop.org</a>
+							<a href="https://www.wordbookstores.com/book/9780393349788" target="_blank" rel="noopener noreferrer" class="book-link secondary">WORD Bookstores</a>
+							<a href="https://www.amazon.com/dp/0393349780/ref=cm_sw_su_dp" target="_blank" rel="noopener noreferrer" class="book-link secondary">Amazon</a>
 						</div>
 					</div>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<!-- About Section -->
+	<section class="content-section bio-section relative overflow-hidden">
+		<div class="bio-section-glow" aria-hidden="true"></div>
+		<div class='container px-4 mx-auto max-w-6xl relative z-10'>
+			<div class="bio-shell">
+				<div class="bio-portrait">
+					<div class="bio-portrait-frame">
+						<Image
+							src={Anthony}
+							alt="Anthony Townsend portrait"
+							class="rounded-3xl shadow-2xl w-full"
+						/>
+					</div>
+				</div>
+				<div class="bio-content">
+					<p class="eyebrow">About</p>
+					<h2>Anthony M. Townsend</h2>
+					<p class="bio-copy">
+						Dr. Anthony Townsend is Senior Research Associate at Cornell Tech's <a href="https://urban.tech.cornell.edu/" target="_blank" rel="noopener noreferrer">Jacobs Urban Tech Hub</a>, leading multi-disciplinary collaborations that connect researchers with industry, government, and civil society partners tackling complex urban challenges.
+					</p>
+					<p class="bio-copy">
+						Over the last 25 years he has helped shape the global conversation on cities and technology—designing smarter mobility systems, advising mayors, and mentoring startup teams building the next civic infrastructure.
+					</p>
+					<div class="bio-cta">
+						<a href="https://urban.tech.cornell.edu/" target="_blank" rel="noopener noreferrer" class="primary">Cornell Tech</a>
+						<a href="/archives" class="secondary">Consulting</a>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 
 	<!-- Footer with Archives Link -->
 	<div class="content-section bg-white dark:bg-zinc-900" style="padding-bottom: 8rem;">
