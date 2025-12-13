@@ -4,15 +4,25 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const videos = [
 	{
 		id: 1,
-		title: 'Smart Cities Miami 2025',
-		description: 'Anthony Townsend discusses the future of smart cities and urban technology.',
+		title: 'AI for Adaptation: Can AI Help Us Cope With Climate Change?',
+		description: 'As part of the London Festival of Architecture 2025, Cornell Tech\'s Urban Tech Summit asks: Can AI help us cope with climate change?',
+		videoUrl: '',
+		date: 'June 4, 2025',
+		venue: 'New London Architecture',
+		platform: 'upcoming',
+		eventUrl: 'https://nla.london/events/ai-for-adaptation-can-ai-help-us-cope-with-climate-change'
+	},
+	{
+		id: 2,
+		title: 'Intelligence for Adaptation: How AI Can Help Us Cope With Climate Change',
+		description: 'Anthony Townsend discusses how AI can help cities adapt to climate change.',
 		videoUrl: 'https://www.youtube.com/embed/5vV313oJZgo?start=131',
 		date: 'January 2025',
 		venue: 'Smart Cities Miami',
 		platform: 'youtube'
 	},
 	{
-		id: 2,
+		id: 3,
 		title: 'Keynote: Official Launch of the Responsible Sensing Lab',
 		description: 'Dr. Anthony Townsend speaks at the AMS Institute about responsible sensing and smart city technologies.',
 		videoUrl: 'https://player.vimeo.com/video/506132931?h=0',
@@ -21,7 +31,7 @@ const videos = [
 		platform: 'vimeo'
 	},
 	{
-		id: 3,
+		id: 4,
 		title: 'Anthony Townsend: Moscow Urban Forum 2016',
 		description: 'Anthony Townsend discusses urban innovation and the future of cities at the Moscow Urban Forum.',
 		videoUrl: 'https://player.vimeo.com/video/207478125?h=0',
@@ -30,13 +40,76 @@ const videos = [
 		platform: 'vimeo'
 	},
 	{
-		id: 4,
+		id: 5,
 		title: 'Anthony Townsend, Speaker and Author',
 		description: 'A compilation of Anthony Townsend\'s speaking appearances from various conferences and events prior to 2020.',
 		videoUrl: 'https://player.vimeo.com/video/418231046?h=0',
 		date: 'Pre-2020',
 		venue: 'Various Events',
 		platform: 'vimeo'
+	},
+	{
+		id: 6,
+		title: 'Audi MQ! Innovation Summit',
+		description: 'Anthony Townsend discusses urban technology and smart cities.',
+		videoUrl: 'https://www.youtube.com/embed/LGwUF5fFm84',
+		date: '2020',
+		venue: 'Audi MQ! Innovation Summit',
+		platform: 'youtube'
+	},
+	{
+		id: 7,
+		title: 'Future of Transportation: Automated Vehicles and Urban Mobility',
+		description: 'Anthony Townsend discusses automated vehicles and the future of urban mobility.',
+		videoUrl: 'https://www.youtube.com/embed/ubDQrOkHY1c',
+		date: '2016',
+		venue: 'Volpe Center for Transportation',
+		platform: 'youtube'
+	},
+	{
+		id: 8,
+		title: 'A New Civics for Smart Cities',
+		description: 'Anthony Townsend discusses civic engagement and smart city governance.',
+		videoUrl: 'https://www.youtube.com/embed/_x2YU1u-1YE',
+		date: 'March 2013',
+		venue: 'FutureEverything Summit, Manchester, UK',
+		platform: 'youtube'
+	},
+	{
+		id: 9,
+		title: 'Deconstructing the IoT',
+		description: 'Interview with Anthony Townsend on the Internet of Things and smart cities.',
+		videoUrl: 'https://www.youtube.com/embed/J_IlpPFoml4',
+		date: '2015',
+		venue: 'Temboo Interview',
+		platform: 'youtube'
+	},
+	{
+		id: 10,
+		title: 'Building Smart Cities for the Future',
+		description: 'Anthony Townsend discusses the future of smart cities and urban innovation.',
+		videoUrl: 'https://www.youtube.com/embed/IBtJq0YXAWQ',
+		date: '2013',
+		venue: 'World Affairs Council, San Francisco',
+		platform: 'youtube'
+	},
+	{
+		id: 11,
+		title: 'The Quantified Coast',
+		description: 'Anthony Townsend discusses data-driven approaches to coastal urban development.',
+		videoUrl: 'https://www.youtube.com/embed/cnBuV6idwgg',
+		date: '2016',
+		venue: 'SALT Istanbul',
+		platform: 'youtube'
+	},
+	{
+		id: 12,
+		title: 'Repensando el mañana',
+		description: 'Interview with Anthony Townsend on rethinking tomorrow and the future of cities.',
+		videoUrl: 'https://www.youtube.com/embed/sIruUaJ-9wI',
+		date: '2016',
+		venue: 'Espacio Fundación Telefónica Madrid',
+		platform: 'youtube'
 	}
 ];
 ---
@@ -124,13 +197,29 @@ const videos = [
 			<div class="lg:col-span-2">
 				<div class="main-video-card bg-white dark:bg-zinc-800 rounded-lg border border-zinc-200 dark:border-zinc-700 overflow-hidden">
 					<div class="video-container" id="main-player">
-						<iframe
-							id="video-frame"
-							src={videos[0].videoUrl}
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-							allowfullscreen
-							title={videos[0].title}
-						></iframe>
+						{videos[0].platform === 'upcoming' ? (
+							<div class="absolute inset-0 flex items-center justify-center bg-zinc-100 dark:bg-zinc-900">
+								<div class="text-center p-8">
+									<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-4 text-zinc-400 dark:text-zinc-600">
+										<path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+									</svg>
+									<p class="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-4">Video Coming Soon</p>
+									{videos[0].eventUrl && (
+										<a href={videos[0].eventUrl} target="_blank" rel="noopener noreferrer" class="inline-block px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-colors">
+											Event Details
+										</a>
+									)}
+								</div>
+							</div>
+						) : (
+							<iframe
+								id="video-frame"
+								src={videos[0].videoUrl}
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+								allowfullscreen
+								title={videos[0].title}
+							></iframe>
+						)}
 					</div>
 					<div class="p-6">
 						<div class="mb-3">
@@ -165,11 +254,16 @@ const videos = [
 								data-video-description={video.description}
 								data-video-date={video.date}
 								data-video-venue={video.venue}
+								data-video-platform={video.platform}
+								data-video-event-url={video.eventUrl || ''}
 							>
 								<h4 class="font-semibold text-sm text-zinc-900 dark:text-zinc-100 mb-1 line-clamp-2">
 									{video.title}
 								</h4>
-								<p class="text-xs text-zinc-500 dark:text-zinc-400">
+								<p class="text-xs text-zinc-500 dark:text-zinc-400 mb-0.5">
+									{video.venue}
+								</p>
+								<p class="text-xs text-zinc-400 dark:text-zinc-500">
 									{video.date}
 								</p>
 							</div>
@@ -183,7 +277,7 @@ const videos = [
 	<script>
 		document.addEventListener('DOMContentLoaded', () => {
 			const videoItems = document.querySelectorAll('.video-list-item');
-			const videoFrame = document.getElementById('video-frame') as HTMLIFrameElement;
+			const mainPlayer = document.getElementById('main-player');
 			const videoTitle = document.getElementById('video-title');
 			const videoDescription = document.getElementById('video-description');
 			const videoDate = document.getElementById('video-date');
@@ -196,22 +290,52 @@ const videos = [
 					// Add active class to clicked item
 					item.classList.add('active');
 
-					// Update video player and details
+					// Get video data
 					const url = item.getAttribute('data-video-url');
 					const title = item.getAttribute('data-video-title');
 					const description = item.getAttribute('data-video-description');
 					const date = item.getAttribute('data-video-date');
 					const venue = item.getAttribute('data-video-venue');
+					const platform = item.getAttribute('data-video-platform');
+					const eventUrl = item.getAttribute('data-video-event-url');
 
-					if (videoFrame && url) videoFrame.src = url;
+					// Update details
 					if (videoTitle && title) videoTitle.textContent = title;
 					if (videoDescription && description) videoDescription.textContent = description;
 					if (videoDate && date) videoDate.textContent = date;
 					if (videoVenue && venue) videoVenue.textContent = venue;
 
+					// Update player
+					if (mainPlayer) {
+						if (platform === 'upcoming') {
+							mainPlayer.innerHTML = `
+								<div class="absolute inset-0 flex items-center justify-center bg-zinc-100 dark:bg-zinc-900">
+									<div class="text-center p-8">
+										<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-4 text-zinc-400 dark:text-zinc-600">
+											<path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+										</svg>
+										<p class="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-4">Video Coming Soon</p>
+										${eventUrl ? `<a href="${eventUrl}" target="_blank" rel="noopener noreferrer" class="inline-block px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-colors">Event Details</a>` : ''}
+									</div>
+								</div>
+							`;
+						} else {
+							mainPlayer.innerHTML = `
+								<iframe
+									id="video-frame"
+									src="${url}"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+									allowfullscreen
+									title="${title}"
+									style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+								></iframe>
+							`;
+						}
+					}
+
 					// Scroll to top on mobile
 					if (window.innerWidth < 1024) {
-						document.getElementById('main-player')?.scrollIntoView({ behavior: 'smooth' });
+						mainPlayer?.scrollIntoView({ behavior: 'smooth' });
 					}
 				});
 			});
