@@ -1,0 +1,220 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const videos = [
+	{
+		id: 1,
+		title: 'Smart Cities Miami 2025',
+		description: 'Anthony Townsend discusses the future of smart cities and urban technology.',
+		videoUrl: 'https://www.youtube.com/embed/5vV313oJZgo?start=131',
+		date: 'January 2025',
+		venue: 'Smart Cities Miami',
+		platform: 'youtube'
+	},
+	{
+		id: 2,
+		title: 'Keynote: Official Launch of the Responsible Sensing Lab',
+		description: 'Dr. Anthony Townsend speaks at the AMS Institute about responsible sensing and smart city technologies.',
+		videoUrl: 'https://player.vimeo.com/video/506132931?h=0',
+		date: 'January 2021',
+		venue: 'AMS Institute',
+		platform: 'vimeo'
+	},
+	{
+		id: 3,
+		title: 'Anthony Townsend: Moscow Urban Forum 2016',
+		description: 'Anthony Townsend discusses urban innovation and the future of cities at the Moscow Urban Forum.',
+		videoUrl: 'https://player.vimeo.com/video/207478125?h=0',
+		date: '2016',
+		venue: 'Moscow Urban Forum',
+		platform: 'vimeo'
+	},
+	{
+		id: 4,
+		title: 'Anthony Townsend, Speaker and Author',
+		description: 'A compilation of Anthony Townsend\'s speaking appearances from various conferences and events prior to 2020.',
+		videoUrl: 'https://player.vimeo.com/video/418231046?h=0',
+		date: 'Pre-2020',
+		venue: 'Various Events',
+		platform: 'vimeo'
+	}
+];
+---
+
+<BaseLayout
+	title="Speaking"
+	description="Watch Anthony Townsend speak about cities, technology, and the future of urban life at conferences and events around the world."
+>
+	<style>
+		.main-video-card {
+			transition: box-shadow 0.3s ease;
+			margin: 1rem;
+		}
+
+		.video-container {
+			position: relative;
+			width: 100%;
+			padding-bottom: 56.25%; /* 16:9 aspect ratio */
+			height: 0;
+			overflow: hidden;
+			border-radius: 0.5rem;
+		}
+
+		.video-container iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border: 0;
+		}
+
+		.video-badge {
+			display: inline-block;
+			padding: 0.35rem 0.85rem;
+			font-size: 0.8rem;
+			font-weight: 600;
+			border-radius: 999px;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			background-color: rgba(99, 102, 241, 0.1);
+			color: rgb(99, 102, 241);
+		}
+
+		.dark .video-badge {
+			background-color: rgba(99, 102, 241, 0.2);
+			color: rgb(165, 180, 252);
+		}
+
+		.video-list-item {
+			transition: all 0.2s ease;
+			cursor: pointer;
+		}
+
+		.video-list-item:hover {
+			transform: translateX(4px);
+			background-color: rgba(99, 102, 241, 0.05);
+		}
+
+		.dark .video-list-item:hover {
+			background-color: rgba(99, 102, 241, 0.1);
+		}
+
+		.video-list-item.active {
+			background-color: rgba(99, 102, 241, 0.1);
+			border-left: 3px solid rgb(99, 102, 241);
+		}
+
+		.dark .video-list-item.active {
+			background-color: rgba(99, 102, 241, 0.15);
+			border-left-color: rgb(165, 180, 252);
+		}
+	</style>
+
+	<div class='container'>
+		<div class="mb-12">
+			<h1 class="text-4xl md:text-5xl font-bold mb-4 text-zinc-900 dark:text-zinc-100">Speaking</h1>
+			<p class="text-zinc-700 dark:text-zinc-300 text-lg md:text-xl max-w-3xl">
+				Watch Anthony Townsend speak about cities, technology, and the future of urban life at conferences and events around the world.
+			</p>
+		</div>
+
+		<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+			<!-- Main Video Player -->
+			<div class="lg:col-span-2">
+				<div class="main-video-card bg-white dark:bg-zinc-800 rounded-lg border border-zinc-200 dark:border-zinc-700 overflow-hidden">
+					<div class="video-container" id="main-player">
+						<iframe
+							id="video-frame"
+							src={videos[0].videoUrl}
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							allowfullscreen
+							title={videos[0].title}
+						></iframe>
+					</div>
+					<div class="p-6">
+						<div class="mb-3">
+							<span class="video-badge" id="video-date">{videos[0].date}</span>
+						</div>
+						<h2 class="text-2xl font-bold mb-3 text-zinc-900 dark:text-zinc-100" id="video-title">
+							{videos[0].title}
+						</h2>
+						<p class="text-zinc-600 dark:text-zinc-400 mb-2" id="video-description">
+							{videos[0].description}
+						</p>
+						<p class="text-sm font-medium text-zinc-500 dark:text-zinc-500" id="video-venue">
+							{videos[0].venue}
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Video List -->
+			<div class="lg:col-span-1">
+				<div class="bg-white dark:bg-zinc-800 rounded-lg border border-zinc-200 dark:border-zinc-700 overflow-hidden">
+					<div class="p-4 border-b border-zinc-200 dark:border-zinc-700">
+						<h3 class="font-bold text-lg text-zinc-900 dark:text-zinc-100">All Talks</h3>
+					</div>
+					<div class="divide-y divide-zinc-200 dark:divide-zinc-700">
+						{videos.map((video, index) => (
+							<div
+								class={`video-list-item p-4 ${index === 0 ? 'active' : ''}`}
+								data-video-id={video.id}
+								data-video-url={video.videoUrl}
+								data-video-title={video.title}
+								data-video-description={video.description}
+								data-video-date={video.date}
+								data-video-venue={video.venue}
+							>
+								<h4 class="font-semibold text-sm text-zinc-900 dark:text-zinc-100 mb-1 line-clamp-2">
+									{video.title}
+								</h4>
+								<p class="text-xs text-zinc-500 dark:text-zinc-400">
+									{video.date}
+								</p>
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const videoItems = document.querySelectorAll('.video-list-item');
+			const videoFrame = document.getElementById('video-frame') as HTMLIFrameElement;
+			const videoTitle = document.getElementById('video-title');
+			const videoDescription = document.getElementById('video-description');
+			const videoDate = document.getElementById('video-date');
+			const videoVenue = document.getElementById('video-venue');
+
+			videoItems.forEach(item => {
+				item.addEventListener('click', () => {
+					// Remove active class from all items
+					videoItems.forEach(i => i.classList.remove('active'));
+					// Add active class to clicked item
+					item.classList.add('active');
+
+					// Update video player and details
+					const url = item.getAttribute('data-video-url');
+					const title = item.getAttribute('data-video-title');
+					const description = item.getAttribute('data-video-description');
+					const date = item.getAttribute('data-video-date');
+					const venue = item.getAttribute('data-video-venue');
+
+					if (videoFrame && url) videoFrame.src = url;
+					if (videoTitle && title) videoTitle.textContent = title;
+					if (videoDescription && description) videoDescription.textContent = description;
+					if (videoDate && date) videoDate.textContent = date;
+					if (videoVenue && venue) videoVenue.textContent = venue;
+
+					// Scroll to top on mobile
+					if (window.innerWidth < 1024) {
+						document.getElementById('main-player')?.scrollIntoView({ behavior: 'smooth' });
+					}
+				});
+			});
+		});
+	</script>
+</BaseLayout>

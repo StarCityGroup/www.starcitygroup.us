@@ -13,15 +13,6 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    name: 'Initiative on Aging and Extreme Heat',
-    date: "2024 to present",
-    image:'/images/neo-newyork-tem-2002226-lrg-crop.webp',
-    description: 'Data-driven climate adaptation.',
-    demoLink: 'https://www.extremeheat.us',
-    tags: ['Resilience','Health']
-  },
-
-  {
     name: 'RethinkAI',
     description: 'AI innovation at the city-civil society interface.',
     date: "2024 to present",
@@ -29,16 +20,6 @@ export const projects: Project[] = [
     demoLink: 'https://www.newamerica.org/rethinkai/',
     demoLinkRel: 'nofollow noopener noreferrer',
     tags: ['AI', 'Government']
-  },
-  {
-    ...(await getRepositoryDetails('Cornell-Tech-Urban-Tech-Hub/atlas-of-urban-tech')),
-    name: 'Atlas of Urban Tech',
-    date: "2023 to present",
-    description: 'Case studies of smart city plans and districts.',
-    image: '/images/aerial-view-architecture-bridges-buildings-cars-city-1560273-pxhere.com_-768x432.jpg',
-    demoLink: 'https://www.atlasofurbantech.org',
-    /* postLink: '/2023-07-02-nycs-urban-tech-ecosystem/', */
-    tags: ['Planning', 'Economic Development']
   },
   {
     name: 'Bus Observatory',
@@ -65,26 +46,13 @@ export const projects: Project[] = [
     tags: ['Mobility','Scenarios']
   },
   {
-    name: 'Big Urban Data',
+    name: 'Big Urban Data in Latin American Cities',
     date: "2019",
     image:'/images/casa-london.png',
     description: 'A maturity model for Latin American cities to assess data initiatives.',
     demoLink: 'https://publications.iadb.org/publications/english/document/Big_Urban_Data_A_Strategic_Guide_for_Cities.pdf',
     tags: ['Government','Data']
   },
-
-  {
-    name: 'How Cities Make Software Together',
-    date: "2023",
-    image: '/images/victor-rodriguez-IiLFMkqiFrM-unsplash-768x510.jpg',
-    description: 'Comparative study of 6 multi-city open source collaborations.',
-    demoLink: 'https://sites.coecis.cornell.edu/urbantech/files/2023/04/How-Cities-Make-Software-Together.pdf',
-    tags: ['Government','Innovation']
-  },
-
-
-
-
   {
     name: 'Blue Economy Innovation District',
     date: "2019",
