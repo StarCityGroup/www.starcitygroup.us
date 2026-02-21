@@ -11,11 +11,7 @@ const blog = defineCollection({
 		pubDate: z.coerce.date(),
 		updatedDate: z.coerce.date().optional(),
     tags: z.array(z.string()).optional(),
-		coverImage: image()
-      .refine((img) => img.width >= 1, {
-        message: 'Cover image must be at least 1 pixels wide!'
-      })
-      .optional()
+		coverImage: image().optional()
 	}),
 });
 

@@ -1,7 +1,18 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const videos = [
+interface Video {
+	id: number;
+	title: string;
+	description: string;
+	videoUrl: string;
+	date: string;
+	venue: string;
+	platform: string;
+	eventUrl?: string;
+}
+
+const videos: Video[] = [
 	{
 		id: 1,
 		title: 'Intelligence for Adaptation: How AI Can Help Us Cope With Climate Change',
