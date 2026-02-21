@@ -15,4 +15,4 @@ Over the last decade, resilience has emerged as an important movement in urban p
 
 This essay, "Our Inevitable Retreat", commissioned by the New Cities Foundation, explores the rise and fall of resilience thinking, and the prospects for strategic retreat from coastal cities through the personal experience of Star City Group's Anthony Townsend, a putative climate refugee himself—and his relocation from Sandy-inundated Hoboken to the nearby neighborhood of Jersey City Heights.
 
-Read at [New Cities Foundation](https://newcities.org/the-big-picture-our-inevitable-retreat/).
+Read at [New Cities Foundation](https://web.archive.org/web/20201129102815/https://newcities.org/the-big-picture-our-inevitable-retreat/).
