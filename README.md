@@ -72,9 +72,17 @@ This website is built with [Astro](https://astro.build), a modern static site ge
 
 ## Deployment
 
-The site is configured for deployment on modern hosting platforms that support static sites (Netlify, Vercel, Cloudflare Pages, etc.).
+The site is deployed on **Netlify** via the `anthony@starcitygroup.us` account.
 
-Build the production site:
+- **Netlify Site**: [starcitygroup.netlify.app](https://starcitygroup.netlify.app)
+- **Production URL**: [www.starcitygroup.us](https://www.starcitygroup.us)
+- **Dashboard**: [app.netlify.com/sites/starcitygroup](https://app.netlify.com/sites/starcitygroup)
+
+Netlify automatically deploys from the `main` branch of this repository. The build configuration uses:
+- **Build command**: `pnpm run build`
+- **Publish directory**: `dist/`
+
+To build the production site locally:
 
 ```bash
 pnpm run build
